@@ -15,3 +15,5 @@ let professorSchema = new Schema({
         type: String, required: true, max:30
     }
 })
+
+module.exports = mongoose.model('Professor', professorSchema)

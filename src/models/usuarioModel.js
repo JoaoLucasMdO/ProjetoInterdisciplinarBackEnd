@@ -12,3 +12,5 @@ let usuarioSchema = new Schema({
         type:String, required: true, max:40
     }
 })
+
+module.exports = mongoose.model('Usuario', usuarioSchema)

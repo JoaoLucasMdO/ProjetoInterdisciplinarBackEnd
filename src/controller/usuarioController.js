@@ -7,7 +7,7 @@ exports.criar = function (req, res) {
        */
    let usuario = new Usuario(
        {
-           name: req.body.name,
+           nome: req.body.nome,
            email: req.body.email,
            senha: req.body.senha
        }

@@ -14,7 +14,7 @@ exports.criar = function (req, res) {
    );
 
    usuario.save()
-       .then(res.status(201).send(user.toJSON()))
+       .then(res.status(201).send(usuario.toJSON()))
        .catch((err) => {
            res.status(500).send({ message: `${err.message} - falha ao cadastrar usuário.` })
        })

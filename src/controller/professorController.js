@@ -3,9 +3,9 @@ let Professor = require('../models/professorModel')
 exports.criar = function (req, res) {
     /*
        #swagger.tags = ['Professor']
-       #swagger.description = 'Insere um novo usuário'
+       #swagger.description = 'Insere um novo professor'
        */
-   let usuario = new Usuario(
+   let professor = new Professor(
        {
            nome: req.body.nome,
            cursos: req.body.cursos,
@@ -14,9 +14,9 @@ exports.criar = function (req, res) {
        }
    );
 
-   usuario.save()
-       .then(res.status(201).send(user.toJSON()))
+   professor.save()
+       .then(res.status(201).send(professor.toJSON()))
        .catch((err) => {
-           res.status(500).send({ message: `${err.message} - falha ao cadastrar usuário.` })
+           res.status(500).send({ message: `${err.message} - falha ao cadastrar o professor.` })
        })
 };

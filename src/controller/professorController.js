@@ -1,6 +1,6 @@
 let Professor = require('../models/professorModel')
 
-exports.criar = function (req, res) {
+exports.create = function (req, res) {
     /*
        #swagger.tags = ['Professor']
        #swagger.description = 'Insere um novo professor'

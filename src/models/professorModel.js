@@ -8,12 +8,6 @@ let professorSchema = new Schema({
     cursos:{
         type: Array, required: false
     },
-    email:{
-        type: String, required: true, max:30
-    },
-    senha:{
-        type: String, required: true, max:30
-    }
 })
 
 module.exports = mongoose.model('Professor', professorSchema)

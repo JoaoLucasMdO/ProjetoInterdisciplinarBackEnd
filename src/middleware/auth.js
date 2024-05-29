@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 
-export default async function auth(req, res, next){
+exports.create = async function auth(req, res, next){
     const token = req.header('access-token')
     if(!token) return res.status(401).json({ //401-Not Authorized
         msg: 'Acesso negado. É obrigatório o envio do token JWT'

@@ -1,13 +1,14 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const config = require('dotenv')
 const app = express()
-const port = 3000
+const port = 4000
+config.config()
 
-const professorRoute = require('./routes/professorRoutes')
-const usuarioRoute = require('./routes/usuarioRoutes')
+const professorRoute = require('./src/routes/professorRoutes')
+const usuarioRoute = require('./src/routes/usuarioRoutes')
 
 app.set('views', './views')
-
 app.set('view engine', 'ejs')
 
 // Configurar acesso à BD.

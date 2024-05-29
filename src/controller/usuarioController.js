@@ -2,7 +2,6 @@ var Usuario = require('../models/usuarioModel')
 
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-let Usuario = require('../models/usuarioModel')
 
 exports.create = async function(req, res){
     /*
@@ -21,6 +20,7 @@ exports.create = async function(req, res){
             senha: req.body.senha
         }
     );
+
     //iremos salvar o registro
     usuario.save()
         .then(res.status(201).send(usuario.toJSON()))
@@ -36,7 +36,7 @@ exports.login = async function (req, res) {
         //verificar se o email existe no MongoDB
         let usuario = await Usuario.findOne({email:email})
         //Se o array estiver vazio, é que o email não existe
-        if (!usuario.length)
+        if (!usuario)
             return res.status(404).json({//Not found
                 errors: [{
                     value: `${email}`,
@@ -45,7 +45,7 @@ exports.login = async function (req, res) {
                 }]
             })
         //Se o email existir, comparamos se a senha está correta
-        const isMatch = await bcrypt.compare(senha, usuario[0].senha)
+        const isMatch = await bcrypt.compare(senha, usuario.senha)
         if (!isMatch)
             return res.status(403).json({//Forbidden
                 errors: [{
@@ -56,7 +56,7 @@ exports.login = async function (req, res) {
             })
         //Iremos gerar o token JWT
         jwt.sign(
-            { usuario: { id: usuario[0]._id } },
+            { usuario: { id: usuario._id } },
             process.env.SECRET_KEY,
             { expiresIn: process.env.EXPIRES_IN },
             (err, token) => {

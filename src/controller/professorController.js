@@ -1,6 +1,8 @@
 let Professor = require('../models/professorModel')
+const auth = require('../middleware/auth')
 
 exports.create = function (req, res) {
+    auth()
     /*
        #swagger.tags = ['Professor']
        #swagger.description = 'Insere um novo professor'
@@ -8,9 +10,7 @@ exports.create = function (req, res) {
    let professor = new Professor(
        {
            nome: req.body.nome,
-           cursos: req.body.cursos,
-           email: req.body.email,
-           senha: req.body.senha
+           cursos: req.body.cursos
        }
    );
 

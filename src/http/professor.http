@@ -1,0 +1,10 @@
+@baseURL = http://localhost:4000/professor
+
+###
+POST {{baseURL}}/create
+Content-Type: application/json
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ8.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1N2I5YjZiZWU3MGZiMTA0MjM5MzI3In0sImlhdCI6MTcxNzAyNzI3MiwiZXhwIjoxNzE3MTEzNjcyfQ.84R8qIzkdM5EYd9B5lyyeN3SZqQHU7rXFxOZ9cB3ZjY
+
+{
+    "nome": "Rodrigo"   
+}

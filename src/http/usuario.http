@@ -1,9 +1,9 @@
 
-@baseURL = http://localhost:4000
+@baseURL = http://localhost:4000/usuario
 
 ###
 # @prompt senha
-POST {{baseURL}}/usuario
+POST {{baseURL}}/create
 Content-Type: application/json
 
 {

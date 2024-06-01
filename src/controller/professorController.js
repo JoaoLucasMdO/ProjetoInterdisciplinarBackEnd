@@ -1,12 +1,10 @@
 let Professor = require('../models/professorModel')
-const auth = require('../middleware/auth')
 
 exports.create = function (req, res) {
     /*
     #swagger.tags = ['Professor']
     #swagger.description = 'Insere um novo professor'
     */
-    auth.autenticar(req, res)
     let professor = new Professor(
         {
             nome: req.body.nome,

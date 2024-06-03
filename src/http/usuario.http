@@ -3,7 +3,7 @@
 
 ###
 # @prompt senha
-POST {{baseURL}}/create
+POST {{baseURL}}
 Content-Type: application/json
 
 {

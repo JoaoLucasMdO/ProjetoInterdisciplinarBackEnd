@@ -18,6 +18,14 @@ exports.getProfId = async function(req, res){
     }
 }
 
+// exports.attProf = async function(req, res){
+//     try{
+
+//     }catch(err){
+
+//     }
+// }
+
 exports.delProf = async function (req, res) {
 try{
     await Professor.findByIdAndDelete(req.params.id)

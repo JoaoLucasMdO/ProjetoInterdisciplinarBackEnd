@@ -13,7 +13,7 @@ app.set('view engine', 'ejs')
 
 // Configurar acesso à BD.
 const mongoose = require('mongoose');
-let url = 'mongodb+srv://janmello123:joao123@projetointerdisciplinar.yuod8po.mongodb.net/projetoInterdisciplinar'
+let url = 'mongodb://localhost:27017/'
 let mongoDB = url;
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;

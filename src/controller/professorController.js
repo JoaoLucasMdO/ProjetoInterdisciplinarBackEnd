@@ -18,6 +18,15 @@ exports.getProfId = async function(req, res){
     }
 }
 
+exports.delProf = async function (req, res) {
+try{
+    await Professor.findByIdAndDelete(req.params.id)
+    res.status(200).send({message: 'Professor excluído com sucesso!'})
+}catch(err){
+    res.status(500).send({ message: `${err.message} - falha ao excluir o professor.` })
+}
+}
+
 exports.createProf = function (req, res) {
     /*
     #swagger.tags = ['Professor']
@@ -30,10 +39,10 @@ exports.createProf = function (req, res) {
         }
     );
 
-    professor.save()
-        .then(res.status(201).send(professor.toJSON()))
-        .catch((err) => {
+    try{
+        professor.save()
+        res.status(201).send(professor.toJSON())
+    }catch(err){
             res.status(500).send({ message: `${err.message} - falha ao cadastrar o professor.` })
-        })
-
+    }
 };

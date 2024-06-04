@@ -1,30 +1,40 @@
 let Professor = require('../models/professorModel')
 
-exports.getProf = async function(req, res){
-    try{
+exports.getProf = async function (req, res) {
+    try {
+        res.render('index', {login:loginView})
         const result = await Professor.find()
         res.status(200).json(result)
-    }catch(err){
+    } catch (err) {
         res.status(500).json(err)
     }
 }
 
-exports.getProfId = async function(req, res){
-    try{
+exports.getProfId = async function (req, res) {
+    try {
         const result = await Professor.findById(req.params.id)
         res.status(200).json(result)
-    }catch(err){
+    } catch (err) {
+        res.status(500).json(err)
+    }
+}
+
+exports.attProf = async function (req, res) {
+    try {
+        const result = await Professor.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        res.status(200).json(result)
+    } catch (err) {
         res.status(500).json(err)
     }
 }
 
 exports.delProf = async function (req, res) {
-try{
-    await Professor.findByIdAndDelete(req.params.id)
-    res.status(200).send({message: 'Professor excluído com sucesso!'})
-}catch(err){
-    res.status(500).send({ message: `${err.message} - falha ao excluir o professor.` })
-}
+    try {
+        await Professor.findByIdAndDelete(req.params.id)
+        res.status(200).send({ message: 'Professor excluído com sucesso!' })
+    } catch (err) {
+        res.status(500).send({ message: `${err.message} - falha ao excluir o professor.` })
+    }
 }
 
 exports.createProf = function (req, res) {
@@ -39,10 +49,10 @@ exports.createProf = function (req, res) {
         }
     );
 
-    try{
+    try {
         professor.save()
         res.status(201).send(professor.toJSON())
-    }catch(err){
-            res.status(500).send({ message: `${err.message} - falha ao cadastrar o professor.` })
+    } catch (err) {
+        res.status(500).send({ message: `${err.message} - falha ao cadastrar o professor.` })
     }
 };

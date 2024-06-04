@@ -1,6 +1,6 @@
 @baseURL = http://localhost:4000/professor
 
-//POST um novo professor
+//POST insere um novo professor
 ###
 POST {{baseURL}}
 Content-Type: application/json
@@ -10,7 +10,7 @@ access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1Y
     "nome": "Jorge"   
 }
 
-//GET todos os professores
+//GET lista todos os professores
 ###
 GET {{baseURL}}
 Content-Type: application/json
@@ -20,7 +20,7 @@ access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1Y
 
 }
 
-//GET o professor pelo id
+//GET busca o professor pelo id
 ###
 GET {{baseURL}}/665b3ef034cf2745a80961bd
 Content-Type: application/json
@@ -30,7 +30,17 @@ access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1Y
     
 }
 
-//DELETE o professor pelo id
+//DELETE deleta o professor pelo id
+###
+DELETE {{baseURL}}/665b3ef034cf2745a80961bd
+Content-Type: application/json
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1YjNlODMzNGNmMjc0NWE4MDk2MWI4In0sImlhdCI6MTcxNzQyMjY1NCwiZXhwIjoxNzE3NTA5MDU0fQ.oENOJjJ_C0CDSNaQn5I4-B5lU80FLCVOj0gP58BjpX0
+
+{
+    
+}
+
+//PUT atualiza o professor pelo id
 ###
 DELETE {{baseURL}}/665b3ef034cf2745a80961bd
 Content-Type: application/json

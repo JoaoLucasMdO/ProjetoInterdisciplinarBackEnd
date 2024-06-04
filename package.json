@@ -1,7 +1,7 @@
 {
   "name": "backendmongo",
   "version": "1.0.0",
-  "description": "",
+  "description": "Integrantes do Projeto: Gesley Rosa, João Lucas",
   "main": "app.js",
   "scripts": {
     "test": "jest",

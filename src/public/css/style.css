@@ -1,13 +1,28 @@
-.message {
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+/* Estilo do cabeçalho */
+header {
+    background-color: #343a40;
+    padding: 15px 0;
 }
-.success {
-    background-color: #dff0d8;
-    color: #3c763d;
+
+.navbar-brand, .navbar-nav .nav-link {
+    color: #fff;
 }
-.error {
-    background-color: #f2dede;
-    color: #a94442;
+
+.navbar-nav .nav-link {
+    margin-right: 20px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffc107;
+}
+
+/* Estilo do corpo */
+.container {
+    text-align: center;
+    padding: 50px 0;
+}
+
+/* Estilo do rodapé */
+.footer {
+    background-color: #;
 }

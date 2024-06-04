@@ -12,8 +12,13 @@ app.set('view engine', 'ejs')
 app.set('views', './views/usuario')
 app.set('views', './views/professor')
 
+app.get('/', (req,res) => {
+  res.render('index')
+})
+
 // Configurar acesso à BD.
 const mongoose = require('mongoose');
+const { render } = require('ejs')
 let url = 'mongodb://127.0.0.1:27017/projetoInterDisciplinar'
 let mongoDB = url;
 mongoose.connect(mongoDB);

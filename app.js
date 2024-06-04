@@ -8,8 +8,9 @@ config.config()
 const professorRoute = require('./src/routes/professorRoutes')
 const usuarioRoute = require('./src/routes/usuarioRoutes')
 
-//Rota de conteúdo público
-app.use('/', express.static('./src/views'))
+app.set('view engine', 'ejs') 
+app.set('views', './views/usuario')
+app.set('views', './views/professor')
 
 // Configurar acesso à BD.
 const mongoose = require('mongoose');

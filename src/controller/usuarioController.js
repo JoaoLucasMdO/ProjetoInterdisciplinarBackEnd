@@ -22,11 +22,12 @@ exports.create = async function(req, res){
     );
 
     //iremos salvar o registro
-    usuario.save()
-        .then(res.status(201).send(usuario.toJSON()))
-        .catch((err) => {
-            res.status(500).send({ message: `${err.message} - falha ao cadastrar usuário.` })
-        })
+    try{
+        usuario.save()
+        res.status(201).send(usuario.toJSON())
+    }catch(err){
+        res.status(500).send({ message: `${err.message} - falha ao cadastrar usuário.` })
+    }
 };
 
 exports.login = async function (req, res) {

@@ -1,16 +1,17 @@
-@baseURL = http://localhost:4000/professor
+@baseURL = http://localhost:4000/curso
 
-//POST insere um novo professor
+//POST insere um novo curso
 ###
 POST {{baseURL}}
 Content-Type: application/json
 access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1YjNlODMzNGNmMjc0NWE4MDk2MWI4In0sImlhdCI6MTcxNzUxMTY0MywiZXhwIjoxNzE3NTk4MDQzfQ.UC9hzMW_Ht1rmNw5cO2Z6gzyD6Ny5OxjX8F_UVd39QM
 
 {
-    "nome": "Jorge"   
+    "nome": "DSM",
+    "totalHoras": 80   
 }
 
-//GET lista todos os professores
+//GET lista todos os cursos
 ###
 GET {{baseURL}}
 Content-Type: application/json
@@ -20,9 +21,9 @@ access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1Y
 
 }
 
-//GET busca o professor pelo id
+//GET busca o curso pelo id
 ###
-GET {{baseURL}}/665f2621e0d17e2e9c58f6fd
+GET {{baseURL}}/665f7d8b21dd9437273614e9
 Content-Type: application/json
 access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1YjNlODMzNGNmMjc0NWE4MDk2MWI4In0sImlhdCI6MTcxNzUxMTY0MywiZXhwIjoxNzE3NTk4MDQzfQ.UC9hzMW_Ht1rmNw5cO2Z6gzyD6Ny5OxjX8F_UVd39QM
 
@@ -30,9 +31,9 @@ access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1Y
     
 }
 
-//DELETE deleta o professor pelo id
+//DELETE deleta o curso pelo id
 ###
-DELETE {{baseURL}}/665f2621e0d17e2e9c58f6fd
+DELETE {{baseURL}}/665f7d8b21dd9437273614e9
 Content-Type: application/json
 access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1YjNlODMzNGNmMjc0NWE4MDk2MWI4In0sImlhdCI6MTcxNzUxMTY0MywiZXhwIjoxNzE3NTk4MDQzfQ.UC9hzMW_Ht1rmNw5cO2Z6gzyD6Ny5OxjX8F_UVd39QM
 
@@ -40,12 +41,12 @@ access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1Y
     
 }
 
-//PUT atualiza o professor pelo id
+//PUT atualiza o curso pelo id
 ###
-PUT {{baseURL}}/665b3ec034cf2745a80961bb
+PUT {{baseURL}}/665f7d7021dd9437273614e6
 Content-Type: application/json
 access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1YjNlODMzNGNmMjc0NWE4MDk2MWI4In0sImlhdCI6MTcxNzUxMTY0MywiZXhwIjoxNzE3NTk4MDQzfQ.UC9hzMW_Ht1rmNw5cO2Z6gzyD6Ny5OxjX8F_UVd39QM
 
 {
-   "nome": "Rodrigo 2"
+   "nome": "DSM 2"
 }

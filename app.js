@@ -9,7 +9,7 @@ const professorRoute = require('./src/routes/professorRoutes')
 const usuarioRoute = require('./src/routes/usuarioRoutes')
 
 //Rota de conteúdo público
-app.use('/', express.static('./src/views'))
+app.use('/', express.static('./src/views/'))
 
 // Configurar acesso à BD.
 const mongoose = require('mongoose');

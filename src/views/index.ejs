@@ -10,25 +10,7 @@
 </head>
 <body>
   <div class="container-fluid">
-    <h1>Listando alunos</h1>
-    <div class="row">
-    <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Nome</th>
-            <th scope="col">Idade</th>
-          </tr>
-        </thead>
-        <tbody>
-            <% for(let x=0; x<alunos.length; x++){ %>
-          <tr>            
-            <td><%= alunos[x].nome %></td>
-            <td> <%= alunos[x].idade %></td>
-          </tr>
-          <% } %>       
-        </tbody>
-      </table>
-    </div>
+    <%= login %>
   </div>
 </body>
 </html>

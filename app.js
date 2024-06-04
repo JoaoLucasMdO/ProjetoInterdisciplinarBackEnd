@@ -9,8 +9,13 @@ const professorRoute = require('./src/routes/professorRoutes')
 const usuarioRoute = require('./src/routes/usuarioRoutes')
 
 app.set('view engine', 'ejs') 
-app.set('views', './views/usuario')
-app.set('views', './views/professor')
+app.set('views', './src/views/professor')
+app.set('views', './src/views/usuario')
+app.set('views', './src/views/')
+
+app.get('/', (req, res) => {
+  res.render('index')
+})
 
 // Configurar acesso à BD.
 const mongoose = require('mongoose');

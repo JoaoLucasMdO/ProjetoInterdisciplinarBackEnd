@@ -2,6 +2,7 @@ let Professor = require('../models/professorModel')
 
 exports.getProf = async function (req, res) {
     try {
+        res.render('index', {login:loginView})
         const result = await Professor.find()
         res.status(200).json(result)
     } catch (err) {

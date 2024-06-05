@@ -1,58 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pontos dos Professores</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body, html {
-            height: 100%;
-        }
-        .content {
-            min-height: calc(100vh - 136px); /* altura do header (56px) + footer (80px) */
-        }
-        .footer {
-            height: 80px;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="#">Pontos dos Professores</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Lançamentos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Cadastro</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Imprimir</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+<%- include('header'); -%>
 
+<body>
     <div class="content container mt-5">
         <h1>Bem-vindo ao Ponto dos Professores</h1>
         <p>Olá</p>
     </div>
-
-    <footer class="footer bg-primary d-flex align-items-center justify-content-center">
-        <div class="text-center text-white">
-            <span>© 2024 New Weather</span>
-        </div>
-    </footer>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-</html>
+
+<%- include('footer'); -%>
+

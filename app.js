@@ -8,6 +8,7 @@ config.config()
 const professorRoute = require('./src/routes/professorRoutes')
 const usuarioRoute = require('./src/routes/usuarioRoutes')
 const cursoRoute = require('./src/routes/cursoRoutes')
+const horarioRoute = require('./src/routes/horarioRoutes')
 
 app.set('view engine', 'ejs') 
 app.set('views', './src/views/professor')
@@ -20,7 +21,7 @@ app.get('/', (req, res) => {
 
 // Configurar acesso à BD.
 const mongoose = require('mongoose');
-let url = 'mongodb+srv://janmello123:joao123@projetointerdisciplinar.yuod8po.mongodb.net/projetoInterdisciplinar'
+let url = 'mongodb://127.0.0.1:27017/projetoInterdisciplinar'
 let mongoDB = url;
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
@@ -31,6 +32,7 @@ app.use(bodyParser.json())
 app.use(professorRoute)
 app.use(usuarioRoute)
 app.use(cursoRoute)
+app.use(horarioRoute)
 
 
 app.listen(port, () => {

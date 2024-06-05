@@ -54,4 +54,29 @@ exports.createProf = function (req, res) {
     } catch (err) {
         res.status(500).send({ message: `${err.message} - falha ao cadastrar o professor.` })
     }
-};
+}
+
+exports.addCurso = async function (req, res) {
+    try {
+        let professor = await Professor.findById(req.params.id)
+        professor.cursos.push(req.body.cursos)
+
+        await Professor.findByIdAndUpdate(req.params.id, professor)
+        res.status(200).send(professor.toJSON())
+    } catch (err) {
+        res.status(500).send({ message: `${err.message} - falha ao adicionar o curso.` })
+    }
+}
+
+exports.delCurso = async function (req,res) {
+    try{
+        let professor = await Professor.findById(req.params.id)
+        const index = professor.cursos.findIndex(x => x == req.body.cursos)
+
+        professor.cursos.splice(index, 1)
+        await Professor.findByIdAndUpdate(req.params.id, professor)
+        res.status(200).send(professor.toJSON())
+    }catch(err){
+        res.status(500).send({ message: `${err.message} - falha ao remover o curso.` })
+    }
+}

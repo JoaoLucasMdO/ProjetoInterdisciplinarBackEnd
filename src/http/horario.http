@@ -1,26 +1,17 @@
-@baseURL = http://localhost:4000/professor
+@baseURL = http://localhost:4000/horario
 
-//POST insere um novo professor
+//POST insere um novo horario
 ###
 POST {{baseURL}}
 Content-Type: application/json
 access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1YjNlODMzNGNmMjc0NWE4MDk2MWI4In0sImlhdCI6MTcxNzUxMTY0MywiZXhwIjoxNzE3NTk4MDQzfQ.UC9hzMW_Ht1rmNw5cO2Z6gzyD6Ny5OxjX8F_UVd39QM
 
 {
-    "nome": "Jorge"   
+    "horaInicio": "04/06/2024 6:00 GMT",
+    "horaFim": "04/06/2024 7:00 GMT"
 }
 
-//POST insere um curso ao professor pelo id
-###
-POST {{baseURL}}/curso/665f9c0d43b339e90793b354
-Content-Type: application/json
-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1YjNlODMzNGNmMjc0NWE4MDk2MWI4In0sImlhdCI6MTcxNzUxMTY0MywiZXhwIjoxNzE3NTk4MDQzfQ.UC9hzMW_Ht1rmNw5cO2Z6gzyD6Ny5OxjX8F_UVd39QM
-
-{
-    "cursos": "Obras" 
-}
-
-//GET lista todos os professores
+//GET lista todos os horarios
 ###
 GET {{baseURL}}
 Content-Type: application/json
@@ -30,9 +21,9 @@ access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1Y
 
 }
 
-//GET busca o professor pelo id
+//GET busca o horario pelo id
 ###
-GET {{baseURL}}/665f9c0d43b339e90793b354
+GET {{baseURL}}/665f7d8b21dd9437273614e9
 Content-Type: application/json
 access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1YjNlODMzNGNmMjc0NWE4MDk2MWI4In0sImlhdCI6MTcxNzUxMTY0MywiZXhwIjoxNzE3NTk4MDQzfQ.UC9hzMW_Ht1rmNw5cO2Z6gzyD6Ny5OxjX8F_UVd39QM
 
@@ -40,9 +31,9 @@ access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1Y
     
 }
 
-//DELETE deleta o professor pelo id
+//DELETE deleta o horario pelo id
 ###
-DELETE {{baseURL}}/665f9813e744bf25fc172579
+DELETE {{baseURL}}/665f7d8b21dd9437273614e9
 Content-Type: application/json
 access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1YjNlODMzNGNmMjc0NWE4MDk2MWI4In0sImlhdCI6MTcxNzUxMTY0MywiZXhwIjoxNzE3NTk4MDQzfQ.UC9hzMW_Ht1rmNw5cO2Z6gzyD6Ny5OxjX8F_UVd39QM
 
@@ -50,22 +41,12 @@ access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1Y
     
 }
 
-//DELETE deleta o curso do professor pelo id do professor e o nome do curso
+//PUT atualiza o horario pelo id
 ###
-DELETE {{baseURL}}/curso/665f9c0d43b339e90793b354
+PUT {{baseURL}}/665f7d7021dd9437273614e6
 Content-Type: application/json
 access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1YjNlODMzNGNmMjc0NWE4MDk2MWI4In0sImlhdCI6MTcxNzUxMTY0MywiZXhwIjoxNzE3NTk4MDQzfQ.UC9hzMW_Ht1rmNw5cO2Z6gzyD6Ny5OxjX8F_UVd39QM
 
 {
-    "cursos":"Obras"
-}
-
-//PUT atualiza o professor pelo id
-###
-PUT {{baseURL}}/665b3ec034cf2745a80961bb
-Content-Type: application/json
-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1YjNlODMzNGNmMjc0NWE4MDk2MWI4In0sImlhdCI6MTcxNzUxMTY0MywiZXhwIjoxNzE3NTk4MDQzfQ.UC9hzMW_Ht1rmNw5cO2Z6gzyD6Ny5OxjX8F_UVd39QM
-
-{
-   "nome": "Rodrigo 2"
+   "nome": "DSM 2"
 }

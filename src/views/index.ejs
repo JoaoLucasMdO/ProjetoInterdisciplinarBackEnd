@@ -5,11 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pontos dos Professores</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/css/style.css">
+    <style>
+        body, html {
+            height: 100%;
+        }
+        .content {
+            min-height: calc(100vh - 136px); /* altura do header (56px) + footer (80px) */
+        }
+        .footer {
+            height: 80px;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <a class="navbar-brand" href="#">Pontos dos Professores</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -30,14 +40,14 @@
         </nav>
     </header>
 
-    <div class="container mt-5">
-        <h1>Bem-vindo ao Ponto  dos Professores</h1>
-        <p>Body.</p>
+    <div class="content container mt-5">
+        <h1>Bem-vindo ao Ponto dos Professores</h1>
+        <p>Olá</p>
     </div>
 
-    <footer class="footer mt-auto py-3 bg-light">
-        <div class="container text-center">
-            <span class="text-muted">© 2024 New Weather</span>
+    <footer class="footer bg-primary d-flex align-items-center justify-content-center">
+        <div class="text-center text-white">
+            <span>© 2024 New Weather</span>
         </div>
     </footer>
 

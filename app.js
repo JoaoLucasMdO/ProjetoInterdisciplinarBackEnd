@@ -16,7 +16,7 @@ app.set('views', './src/views/usuario')
 app.set('views', './src/views')
 
 app.get('/', (req, res) => {
-  res.render('index')
+  res.render('login')
 })
 
 // Configurar acesso à BD.

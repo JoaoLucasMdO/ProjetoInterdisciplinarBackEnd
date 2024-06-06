@@ -9,15 +9,15 @@ access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY2M
 {
     "horaInicio": "04/06/2024 6:00 GMT",
     "horaFim": "04/06/2024 7:00 GMT",
-    "pertenceProf": "665f9c0d43b339e90793b354",
-    "pertenceCurso": "6662353fc26305b5c224ea7c"
+    "prof": "665f9c0d43b339e90793b354",
+    "curso": "6662353fc26305b5c224ea7c"
 }
 
 //GET lista todos os horarios
 ###
 GET {{baseURL}}
 Content-Type: application/json
-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1YjNlODMzNGNmMjc0NWE4MDk2MWI4In0sImlhdCI6MTcxNzUxMTY0MywiZXhwIjoxNzE3NTk4MDQzfQ.UC9hzMW_Ht1rmNw5cO2Z6gzyD6Ny5OxjX8F_UVd39QM
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY2MjM0M2FjMjYzMDViNWMyMjRlYTc3In0sImlhdCI6MTcxNzcxMTkzNiwiZXhwIjoxNzE3Nzk4MzM2fQ.mWb_w3pnT0IbT7lI78_U_84v8Yd3c_0N2-jmlL2brHc
 
 {
 

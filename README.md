@@ -7,3 +7,4 @@ O tema do Frontend escolhido pelos integrantes foi de um site de venda de jogos,
 Dependências 
 
 express, mongoose, body-parser, jest, supertest
+

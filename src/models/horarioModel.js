@@ -7,6 +7,16 @@ let horarioSchema = new Schema({
     },
     horaFim:{
         type: Date, required: true
+    },
+    pertenceProf:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref: 'Professor',
+        required: true,
+    },
+    pertenceCurso:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref: 'Curso',
+        required: true,
     }
 })
 

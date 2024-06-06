@@ -2,7 +2,7 @@ let Horario = require('../models/horarioModel')
 
 exports.gethorario = async function (req, res) {
     try {
-        const result = await Horario.find()
+        const result = await Horario.find().populate('pertenceProf').populate('pertenceCurso')
         res.status(200).json(result)
     } catch (err) {
         res.status(500).json(err)
@@ -46,7 +46,9 @@ exports.createhorario = function (req, res) {
     let horario = new Horario(
         {
             horaInicio: horaI,
-            horaFim: horaF
+            horaFim: horaF,
+            pertenceProf: req.body.prof,
+            pertenceCurso: req.body.curso
         }
     );
 

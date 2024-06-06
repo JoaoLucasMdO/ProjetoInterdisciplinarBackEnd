@@ -71,3 +71,8 @@ exports.login = async function (req, res) {
         console.error(e)
     }
 };
+
+exports.cadastrar = function (req, res){
+    res.render('cadastrar')
+};
+

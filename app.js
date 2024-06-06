@@ -13,7 +13,7 @@ const horarioRoute = require('./src/routes/horarioRoutes')
 app.set('view engine', 'ejs') 
 app.set('views', './src/views/professor')
 app.set('views', './src/views/usuario')
-app.set('views', './src/views/')
+app.set('views', './src/views')
 
 app.get('/', (req, res) => {
   res.render('index')

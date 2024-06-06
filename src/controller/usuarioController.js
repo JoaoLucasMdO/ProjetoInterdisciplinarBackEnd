@@ -76,3 +76,7 @@ exports.cadastrar = function (req, res){
     res.render('cadastrar')
 };
 
+exports.login = function (req, res){
+    res.render('login')
+};
+

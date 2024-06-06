@@ -10,7 +10,7 @@ document.getElementById('formUsuario').addEventListener('submit', function(event
     //Criando o objeto de inclusão
     const dadosUsuario = {nome: nome, email:email, senha:senha}
     //Efetuar o POST para o endpoint
-    fetch(`${urlBase}/usuarios`, {
+    fetch(`${urlBase}/usuario`, { //Alterei de 'usuarios' para 'usuario'
         method: 'POST',
         headers: {"Content-type": "application/json"},
         body: JSON.stringify(dadosUsuario)

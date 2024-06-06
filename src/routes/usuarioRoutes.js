@@ -5,5 +5,6 @@ const usuarioController = require('../controller/usuarioController')
 usuarioRoutes.post('/usuario', usuarioController.create)
 usuarioRoutes.post('/usuario/login', usuarioController.login)
 usuarioRoutes.get('/cadastrar', usuarioController.cadastrar)
+usuarioRoutes.get('/login', usuarioController.login)
 
 module.exports = usuarioRoutes

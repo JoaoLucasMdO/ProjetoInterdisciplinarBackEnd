@@ -10,7 +10,7 @@ express, mongoose, body-parser, jest, supertest
 
 <div align="center">
     
-![banner](https://user-images.githubusercontent.com/69374340/172057240-dd4c637d-57ba-455c-b593-09ca86bb07a2.png)
+![banner](https://github.com/JoaoLucasMdO/ProjetoInterdisciplinarBackEnd/blob/main/src/public/images/banner%20dewDoc.png?raw=true)
 </div>
 <br id="topo">
 <p align="center">
@@ -24,24 +24,16 @@ express, mongoose, body-parser, jest, supertest
 <span id="sobre">
 
 ## :bookmark_tabs: Sobre o projeto
-A partir da apresentação do desafio enfrentado pela empresa parceira, a solução desenvolvida se configura em um site para Help Desk, que consiste em um sistema com 3 frentes: a do **usuário comum**, que pode abrir um chamado e acompanhar seu ciclo de vida, mas também consultar um centro de soluções para resolver seu problema sem o auxílio de um suporte; a do **usuário suporte**, que atende os chamados abertos mas também pode consultar o centro de soluções; e a do **usuário administrador**, cujo tem a função de cadastrar os outros usuários e equipamentos, além de poder visualizar relatórios relacionado aos chamados, observando padrões e métricas de seu interesse.
+Após proposta de criação de software, sugerido pela Coordenação de curso, para o desenvolvimento de uma aplicação que tenha como finalidade o registro, edição, visualização e impressão de um documento, onde seja possível os professores realizarem a conferência e assinatura dos pontos indicando os horários de aula, a solução encontrada para o software, consiste em atendimento ao usuário com **ocupação acadêmica**, que pode acessar a aplicação com autenticação de usuário e senha, e realizar as atividades disponíveis, de criação, edição, e impressão.
 
-> _Projeto baseado na metodologia ágil SCRUM, procurando desenvolver a Proatividade, Autonomia, Colaboração e Entrega de Resultados dos estudantes envolvidos_
+> _Projeto baseado na metodologia ágil SCRUM, procurando desenvolver a Melhoria contínua, Comunicação, Colaboração e Atendimento aos prazos dos estudantes envolvidos_
 
-:pushpin: Status do Projeto: **Concluído** :heavy_check_mark:
-
-### 🏁 Entregas de Sprints
-Cada entrega foi realizada a partir da criação de uma **tag** em cada repositório (web e todos os microsserviços), além da criação de uma branch neste repositório com um relatório completo de tudo o que foi desenvolvido naquela sprint. Observe a relação a seguir:
-| Sprint | Previsão | Status | Histórico |
-|:--:|:----------:|:----------------|:-------------------------------------------------:|
-| 01 | 14/04/2022 | ✔️ Concluída    | [ver relatório](https://github.com/The-Bugger-Ducks/help-duck-documentation/blob/sprint-01/README.md) |
-| 02 | 15/05/2022 | ✔️ Concluída    | [ver relatório](https://github.com/The-Bugger-Ducks/help-duck-documentation/blob/sprint-02/README.md) |
-| 03 | 05/06/2022 | ✔️ Concluída    | [ver relatório](https://github.com/The-Bugger-Ducks/help-duck-documentation/blob/sprint-03/README.md) |
+:pushpin: Status do Projeto: **Em andamento: Proposta do Semestre finalizada** :heavy_check_mark:
 
 ### :clapper: Apresentação Final
-Confira a seguir uma demonstraão das funcionalidades para cada tipo de usuário do sistema:
+Confira a seguir algumas etapas do sistema:
 <details>
-   <summary>Usuário comum</summary>
+   <summary>Login</summary>
     <div align="center">
         <img src="https://user-images.githubusercontent.com/69374340/172084663-1e8ae95b-0c84-493c-b4ab-5cfcda5a4eb3.gif">
     </div>

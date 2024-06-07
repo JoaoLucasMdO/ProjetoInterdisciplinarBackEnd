@@ -33,21 +33,21 @@ Após proposta de criação de software, sugerido pela Coordenação de curso, p
 ### :clapper: Apresentação Final
 Confira a seguir algumas etapas do sistema:
 <details>
-   <summary>Login</summary>
+   <summary>Login de Usuário</summary>
     <div align="center">
-        <img src="https://user-images.githubusercontent.com/69374340/172084663-1e8ae95b-0c84-493c-b4ab-5cfcda5a4eb3.gif">
+        <img src="https://github.com/JoaoLucasMdO/ProjetoInterdisciplinarBackEnd/blob/main/src/public/images/login.png?raw=true">
     </div>
 </details>
 <details>
-   <summary>Usuário suporte</summary>
+   <summary>Cadastro de Usuário</summary>
     <div align="center">
-        <img src="https://user-images.githubusercontent.com/69374340/172084712-de2d2905-dc65-41af-97e8-f980eff5f2d1.gif">
+        <img src="https://github.com/JoaoLucasMdO/ProjetoInterdisciplinarBackEnd/blob/main/src/public/images/registrar.png?raw=true">
     </div>
 </details>
 <details>
-   <summary>Usuário administrador</summary>
+   <summary>Lista de Professores</summary>
     <div align="center">
-        <img src="./usuario_administrador.gif">
+        <img src="...">
     </div>
 </details>
     

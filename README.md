@@ -1,13 +1,3 @@
-Integrantes do Projeto: Gesley Rosa, João Lucas 
-
-Nosso projeto visa desenvolver uma API RESTful completa que permita a realização das operações básicas: GET, POST, PUT e DELETE, mapeando cada operação em rotas apropriadas em nosso servidor, e um Frontend básico que permita consumir as rotas criadas no Backend.
-
-O tema do Frontend escolhido pelos integrantes foi de um site de venda de jogos, a tela inicial contendo todos os jogos cadastrados em nosso banco, podendo limitar a busca de jogos pelas opções de limite minimo e limite máximo fazendo com que os dados trazidos pelo GET na tela inicial atendam tais limites, a tela de login onde o administrador do site poderá logar para fazer o cadastro de novos jogos, a tela de cadastro onde os jogos serão cadastrados, e a tela de jogos cadastrados que permite a exclusão e a edição dos dados dos jogos.
-
-Dependências 
-
-express, mongoose, body-parser, jest, supertest
-
 <div align="center">
     
 ![banner](https://github.com/JoaoLucasMdO/ProjetoInterdisciplinarBackEnd/blob/main/src/public/images/banner%20dewDoc.png?raw=true)
@@ -93,16 +83,12 @@ As seguintes ferramentas, linguagens, bibliotecas e tecnologias foram usadas na 
 <img src="https://img.shields.io/badge/TypeScript-CED4DA?style=for-the-badge&logo=typescript&logoColor=007ACC" alt="Typescript" />
 <img src="https://img.shields.io/badge/HTML5-CED4DA?style=for-the-badge&logo=html5&logoColor=E34F26" alt="HTML" /> 
 <img src="https://img.shields.io/badge/CSS3-CED4DA?style=for-the-badge&logo=css3&logoColor=1572B6" alt="CSS" /> 	
-<img src="https://img.shields.io/badge/React-CED4DA?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" /> 
 <img src="https://img.shields.io/badge/Node.js-CED4DA?style=for-the-badge&logo=nodedotjs&logoColor=339933" alt="Node" />  
-<img src="https://img.shields.io/badge/Java-CED4DA?style=for-the-badge&logo=java&logoColor=DC143C" alt="Java" />
 <img src="https://img.shields.io/badge/MongoDB-CED4DA?style=for-the-badge&logo=mongodb&logoColor=4EA94B" alt="MongoDB" /><br>
-<img src="https://img.shields.io/badge/Python-CED4DA?style=for-the-badge&logo=python&logoColor=yellow" alt="Python" />
 <img src="https://img.shields.io/badge/VS_Code-CED4DA?style=for-the-badge&logo=visual%20studio%20code&logoColor=0078D4" alt="VS Code" /> 
-<img src="https://img.shields.io/badge/Discord-CED4DA?style=for-the-badge&logo=discord&logoColor=7289DA" alt="Discord" /> 
 <img src="https://img.shields.io/badge/GitHub-CED4DA?style=for-the-badge&logo=github&logoColor=20232A" alt="GitHub" /> 
-<img src="https://img.shields.io/badge/Google%20Sheets-CED4DA?style=for-the-badge&logo=google-sheets&logoColor=34A853" alt="Google Sheets" /> 
-<img src="https://img.shields.io/badge/Google%20Docs-CED4DA?style=for-the-badge&logo=google-sheets&logoColor=0D96F6" alt="Google Docs" />
+
+express, mongoose, body-parser, jest, supertest
     
 → [Voltar ao topo](#topo)
 

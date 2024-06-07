@@ -59,7 +59,7 @@ Confira a seguir algumas etapas do sistema:
     
 <div align="center">
     
-![product backlog](https://user-images.githubusercontent.com/69374340/172057734-320d9e43-19e9-409a-8f2d-7d159a1aaa9a.png)
+![product backlog](https://github.com/JoaoLucasMdO/ProjetoInterdisciplinarBackEnd/blob/main/src/public/images/requisitos%20funcionais.png, https://github.com/JoaoLucasMdO/ProjetoInterdisciplinarBackEnd/blob/main/src/public/images/requisitos%20n%C3%A3o%20funcionais.png)
 ![sprint backlog](https://user-images.githubusercontent.com/69374340/172057787-dcc1ecce-1b08-464b-850e-7019dc050056.png)
 ![user stories](https://user-images.githubusercontent.com/69374340/172057949-daade83b-8fec-4acc-a3cf-c4a26a3d3162.png)
 </div>

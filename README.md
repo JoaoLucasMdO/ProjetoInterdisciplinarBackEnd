@@ -118,7 +118,7 @@ express, mongoose, body-parser, jest, supertest
 
 ## :busts_in_silhouette: Equipe
 
-Nome: Gesley de Oliveira Rosa | [![GitHub Badge](https://github.com/GesleyOliveira)]
-Nome: João Lucas de Melo | [![GitHub Badge](https://github.com/JoaoLucasMdO)]
+Nome: Gesley de Oliveira Rosa | [(https://github.com/GesleyOliveira)]
+Nome: João Lucas de Melo | [(https://github.com/JoaoLucasMdO)]
 
 → [Voltar ao topo](#topo)

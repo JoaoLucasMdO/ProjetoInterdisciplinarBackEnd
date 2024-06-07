@@ -47,8 +47,6 @@ Confira a seguir algumas etapas do sistema:
 
 ## :dart: Backlogs & User Stories
     
-<div align="center">
-
 <details>
    <summary>Requisitos Funcionais</summary>
     <div align="center">

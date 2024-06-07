@@ -48,13 +48,37 @@ Confira a seguir algumas etapas do sistema:
 ## :dart: Backlogs & User Stories
     
 <div align="center">
-    
-![product backlog](https://github.com/JoaoLucasMdO/ProjetoInterdisciplinarBackEnd/blob/main/src/public/images/requisitos%20funcionais.png?raw=true)
-![product backlog](https://github.com/JoaoLucasMdO/ProjetoInterdisciplinarBackEnd/blob/main/src/public/images/requisitos%20n%C3%A3o%20funcionais.png?raw=true)
-![class diagram](https://github.com/JoaoLucasMdO/ProjetoInterdisciplinarBackEnd/blob/main/src/public/images/diagrama%20de%20classe%20de%20uso.png?raw=true)
-![software architecture](https://github.com/JoaoLucasMdO/ProjetoInterdisciplinarBackEnd/blob/main/src/public/images/arquitetura%20do%20software.png?raw=true)
-![mental map](https://github.com/JoaoLucasMdO/ProjetoInterdisciplinarBackEnd/blob/main/src/public/images/Mapa%20Mental.png?raw=true)
-</div>
+
+<details>
+   <summary>Requisitos Funcionais</summary>
+    <div align="center">
+        <img src="https://github.com/JoaoLucasMdO/ProjetoInterdisciplinarBackEnd/blob/main/src/public/images/requisitos%20funcionais.png?raw=true">
+    </div>
+</details>
+<details>
+   <summary>Requisitos Não Funcionais</summary>
+    <div align="center">
+        <img src="https://github.com/JoaoLucasMdO/ProjetoInterdisciplinarBackEnd/blob/main/src/public/images/requisitos%20n%C3%A3o%20funcionais.png?raw=true">
+    </div>
+</details>
+<details>
+   <summary>Mapa Mental</summary>
+    <div align="center">
+        <img src="https://github.com/JoaoLucasMdO/ProjetoInterdisciplinarBackEnd/blob/main/src/public/images/Mapa%20Mental.png?raw=true">
+    </div>
+</details>
+<details>
+   <summary>Diagrama de Classe de Uso</summary>
+    <div align="center">
+        <img src="https://github.com/JoaoLucasMdO/ProjetoInterdisciplinarBackEnd/blob/main/src/public/images/diagrama%20de%20classe%20de%20uso.png?raw=true">
+    </div>
+</details>
+<details>
+   <summary>Arquitetura de Software</summary>
+    <div align="center">
+        <img src="https://github.com/JoaoLucasMdO/ProjetoInterdisciplinarBackEnd/blob/main/src/public/images/arquitetura%20do%20software.png?raw=true">
+    </div>
+</details>
   
 → [Voltar ao topo](#topo)
 

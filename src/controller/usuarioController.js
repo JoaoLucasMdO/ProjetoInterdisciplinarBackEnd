@@ -72,7 +72,7 @@ exports.login = async function (req, res) {
     }
 };
 
-exports.cadastrar = function (req, res){
+exports.cadastro = function (req, res){
     res.render('cadastrar')
 };
 

@@ -24,7 +24,7 @@ exports.create = async function(req, res){
     //iremos salvar o registro
     try{
         usuario.save()
-        res.status(201).send(usuario.toJSON())
+        res.status(201).render('cadastrado')
     }catch(err){
         res.status(500).send({ message: `${err.message} - falha ao cadastrar usuário.` })
     }

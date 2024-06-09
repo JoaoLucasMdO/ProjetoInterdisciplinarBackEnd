@@ -1,40 +1,59 @@
 let Professor = require('../models/professorModel')
 
 exports.getProf = async function (req, res) {
+    /*
+    #swagger.tags = ['Professor']
+    #swagger.description = 'Lista os professores'
+    */
     try {
         const result = await Professor.find()
         res.render('professor')
     } catch (err) {
         res.status(500).json(err)
     }
-}
+};
 
 exports.getProfId = async function (req, res) {
+    /*
+    #swagger.tags = ['Professor']
+    #swagger.description = 'Obtém um professor pelo ID'
+    #swagger.parameters['id'] = { description: 'ID do professor' }
+    */
     try {
         const result = await Professor.findById(req.params.id)
         res.status(200).json(result)
     } catch (err) {
         res.status(500).json(err)
     }
-}
+};
 
 exports.attProf = async function (req, res) {
+    /*
+    #swagger.tags = ['Professor']
+    #swagger.description = 'Atualiza os dados do professor pelo ID'
+    #swagger.parameters['id'] = { description: 'ID do professor' }
+    */
     try {
         const result = await Professor.findByIdAndUpdate(req.params.id, req.body, {new: true})
         res.status(200).json(result)
     } catch (err) {
         res.status(500).json(err)
     }
-}
+};
 
 exports.delProf = async function (req, res) {
+    /*
+    #swagger.tags = ['Professor']
+    #swagger.description = 'Deleta o professor pelo ID'
+    #swagger.parameters['id'] = { description: 'ID do professor' }
+    */
     try {
         await Professor.findByIdAndDelete(req.params.id)
         res.status(200).send({ message: 'Professor excluído com sucesso!' })
     } catch (err) {
         res.status(500).send({ message: `${err.message} - falha ao excluir o professor.` })
     }
-}
+};
 
 exports.createProf = function (req, res) {
     /*
@@ -54,9 +73,14 @@ exports.createProf = function (req, res) {
     } catch (err) {
         res.status(500).send({ message: `${err.message} - falha ao cadastrar o professor.` })
     }
-}
+};
 
 exports.addCurso = async function (req, res) {
+    /*
+    #swagger.tags = ['Professor']
+    #swagger.description = 'Adiciona um curso ao professor'
+    #swagger.parameters['id'] = { description: 'ID do professor' }
+    */
     try {
         let professor = await Professor.findById(req.params.id)
         professor.cursos.push(req.body.cursos)
@@ -69,6 +93,11 @@ exports.addCurso = async function (req, res) {
 };
 
 exports.delCurso = async function (req,res) {
+    /*
+    #swagger.tags = ['Professor']
+    #swagger.description = 'Deleta um curso de um professor pelo ID do curso'
+    #swagger.parameters['id'] = { description: 'ID do professor' }
+    */
     try{
         let professor = await Professor.findById(req.params.id)
         const index = professor.cursos.findIndex(x => x == req.body.cursos)

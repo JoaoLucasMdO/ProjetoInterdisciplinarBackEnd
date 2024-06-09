@@ -1,3 +1,4 @@
+const bodyParser = require('body-parser')
 const jwt = require('jsonwebtoken')
 
 exports.autenticar = async function auth(req, res, next){
@@ -18,3 +19,4 @@ exports.autenticar = async function auth(req, res, next){
         res.status(403).send({error: `Token inválido: ${e.message}`})
     }
 }
+

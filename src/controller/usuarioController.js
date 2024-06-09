@@ -21,7 +21,6 @@ exports.create = async function(req, res){
         }
     );
 
-    //iremos salvar o registro
     try{
         usuario.save().then(result => res.status(201).send(result))
     }catch(err){
@@ -30,12 +29,17 @@ exports.create = async function(req, res){
 };
 
 exports.logar = async function (req, res) {
-    //obtendo os dados para o login
+        /*
+       #swagger.tags = ['Usuario']
+       #swagger.description = 'Verifica Login e Senha do usuário cadastrado e realiza o login'
+       */
+
+
     const { email, senha } = req.body
     try {
-        //verificar se o email existe no MongoDB
+
         let usuario = await Usuario.findOne({email:email})
-        //Se o array estiver vazio, é que o email não existe
+
         if (!usuario)
             return res.status(404).json({//Not found
                 errors: [{
@@ -44,17 +48,17 @@ exports.logar = async function (req, res) {
                     param: 'email'
                 }]
             })
-        //Se o email existir, comparamos se a senha está correta
+
         const isMatch = await bcrypt.compare(senha, usuario.senha)
         if (!isMatch)
-            return res.status(403).json({//Forbidden
+            return res.status(403).json({
                 errors: [{
                     value: 'senha',
                     msg: 'A senha informada está incorreta',
                     param: 'senha'
                 }]
             })
-        //Iremos gerar o token JWT
+
         jwt.sign(
             { usuario: { id: usuario._id } },
             process.env.SECRET_KEY,
@@ -72,9 +76,17 @@ exports.logar = async function (req, res) {
 };
 
 exports.cadastro = function (req, res){
+        /*
+       #swagger.tags = ['Usuario']
+       #swagger.description = 'Direciona o usuário para a página de cadastro'
+       */
     res.render('cadastrar')
 };
 
 exports.login = function (req, res){
+        /*
+       #swagger.tags = ['Usuario']
+       #swagger.description = 'Direciona o usuário para a página do Login'
+       */
     res.render('login')
 };

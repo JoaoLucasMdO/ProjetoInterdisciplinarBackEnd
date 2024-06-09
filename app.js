@@ -1,12 +1,15 @@
 const express = require('express')
-const bodyParser = require('body-parser')
 const config = require('dotenv')
 const mongoose = require('mongoose');
 const app = express()
 const port = 4000
-const bcrypt = require('bcryptjs');
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('./swagger-output.json');
+const bodyParser = require('body-parser')
 
-import swaggerRoute from "./src/routes/swagger.route"
+app.use(bodyParser.json());
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+
   
 let db = mongoose.connection;
 
@@ -40,14 +43,30 @@ app.set('views', './src/views')
 
 
 app.get('/', (req, res) => {
+  /*
+    #swagger.tags = ['Usuario']
+    #swagger.description = 'Direciona o Usuário a página de Login'
+    */
   res.render('login', {mensagemLogin:""})
+    /*
+    #swagger.tags = ['Usuario']
+    #swagger.description = 'Renderiza a página de Login'
+    */
 })
 
 app.get('/index', (req, res) => {
+    /*
+    #swagger.tags = ['Usuario']
+    #swagger.description = 'Direciona a página inicial'
+    */
   res.render('index');
 });
 
 app.get('/listar', (req, res) => {
+    /*
+    #swagger.tags = ['Usuario']
+    #swagger.description = 'Lista os professores, com as matérias e os horários'
+    */
   res.render('listar');
 });
 
@@ -67,7 +86,7 @@ app.use(professorRoute)
 app.use(usuarioRoute)
 app.use(cursoRoute)
 app.use(horarioRoute)
-app.use("/doc", swaggerRoute);
+
 
 app.listen(port, () => {
     console.log(`Projeto rodando na porta:${port}`)

@@ -76,7 +76,7 @@
                     })
                         .then(response => response.json())
                         .then(data => {
-                            if (data.acknowledged) {
+                            if (data.status = 201) {
                                 const dataEnvio = new Date().toLocaleString();
                                 const mensagem = `${data.message} em ${dataEnvio}.`;
                                 document.getElementById('mensagem').textContent = mensagem;
@@ -90,7 +90,7 @@
                                         window.location.href = 'login';
                                     }, 4000)
                                 }
-                            } else if (data.errors) {
+                            } else if (data.status = 400) {
                                 const mensagem = 'Erro: ' + data.errors.map(err => err.msg).join(', ');
                                 document.getElementById('mensagem').textContent = mensagem;
                                 new bootstrap.Modal(document.getElementById('modalMensagem')).show();

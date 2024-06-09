@@ -14,4 +14,5 @@ usuarioRoutes.get('/login', usuarioController.login)
 // usuarioRoutes.get('/imprimir', usuarioController.imprimir);
 // usuarioRoutes.get('/inicio', usuarioController.inicio);
 
+
 module.exports = usuarioRoutes

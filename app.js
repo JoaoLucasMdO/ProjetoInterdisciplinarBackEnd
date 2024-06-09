@@ -1,9 +1,29 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const config = require('dotenv')
+const mongoose = require('mongoose');
 const app = express()
 const port = 4000
-const path = require('path');
+const bcrypt = require('bcryptjs');
+  
+let db = mongoose.connection;
+
+let url = 'mongodb+srv://GesleyOliveira:32475297@fatecvotorantim.op8iqc5.mongodb.net/FatecVotorantim';
+
+
+const { validaProfessor, validarCadastroProfessor } = require('./src/controller/validacoes');
+app.use(express.json());
+app.post('/professores', validaProfessor, async (req, res) => {
+  // Se chegou até aqui, os dados estão validados
+  const { name, cpf } = req.body;
+
+  // Salvar os dados no banco de dados
+  await db.collection('professores').insertOne({ name, cpf });
+
+  res.status(201).send('Professor cadastrado com sucesso');
+});
+
+
 
 config.config()
 
@@ -30,13 +50,13 @@ app.get('/listar', (req, res) => {
 });
 
 // Configurar acesso à BD.
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
 //mongodb://127.0.0.1:27017/projetoInterdisciplinar
-let url = 'mongodb+srv://janmello123:joao123@projetointerdisciplinar.yuod8po.mongodb.net/projetoInterdisciplinar'
-let mongoDB = url;
-mongoose.connect(mongoDB);
+//let url = 'mongodb+srv://janmello123:joao123@projetointerdisciplinar.yuod8po.mongodb.net/projetoInterdisciplinar'
+//let mongoDB = url;
+mongoose.connect(url);
 mongoose.Promise = global.Promise;
-let db = mongoose.connection;
+//let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Erro ao conectar ao MongoDB'));
 
 app.use(bodyParser.json())

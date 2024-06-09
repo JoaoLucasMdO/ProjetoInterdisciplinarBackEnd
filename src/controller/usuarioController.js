@@ -76,6 +76,9 @@ exports.cadastro = function (req, res){
     res.render('cadastrar')
 };
 
+exports.login = function (req, res){
+    res.render('login')
+};
 
 exports.listar = function (req, res){
     res.render('listar')

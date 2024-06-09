@@ -4,20 +4,12 @@ const config = require('dotenv')
 const mongoose = require('mongoose');
 const app = express()
 const port = 4000
-const path = require('path');
 const bcrypt = require('bcryptjs');
   
 let db = mongoose.connection;
 
-
-//Parte que o Gesley acrescentou:
-
-//let url = 'mongodb+srv://GesleyOliveira:32475297@fatecvotorantim.op8iqc5.mongodb.net/FatecVotorantim';
-
 let url = 'mongodb+srv://GesleyOliveira:32475297@fatecvotorantim.op8iqc5.mongodb.net/FatecVotorantim';
 
-
-const { body, validationResult } = require('express-validator');
 
 const { validaProfessor, validarCadastroProfessor } = require('./src/controller/validacoes');
 app.use(express.json());
@@ -31,7 +23,6 @@ app.post('/professores', validaProfessor, async (req, res) => {
   res.status(201).send('Professor cadastrado com sucesso');
 });
 
-//Termina aqui
 
 
 config.config()
@@ -75,67 +66,9 @@ app.use(usuarioRoute)
 app.use(cursoRoute)
 app.use(horarioRoute)
 
-app.use('../public/css/style.css', express.static('index'));
-
-db.once('open', () => {
-  console.log('Conectado ao MongoDB');
-});
-
-// Definindo o modelo de usuário
-const User = mongoose.model('User', { nome: String, email: String, senha: String });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
-app.post('/cadastro', [
-  body('nome').notEmpty().withMessage('Nome é obrigatório'),
-  body('email').isEmail().withMessage('E-mail inválido'),
-  body('senha').notEmpty().withMessage('Senha é obrigatória')
-], async (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-  }
-
-  const { nome, email, senha } = req.body;
-
-  try {
-      const user = new User({ nome, email, senha });
-      await user.save();
-      res.status(201).json({ message: 'Cadastro realizado com sucesso' });
-  } catch (error) {
-      res.status(500).json({ message: 'Erro ao cadastrar usuário', error });
-  }
-});
-
-const userSchema = new mongoose.Schema({
-  nome: String,
-  email: { type: String, unique: true },
-  senha: String
-});
-//const User = mongoose.model('User', userSchema);
-
-// Rota para login
-app.post('/login', async (req, res) => {
-  const { login, senha } = req.body;
-
-  try {
-      const user = await User.findOne({ email: login });
-      if (!user) {
-          return res.status(400).json({ success: false, message: 'Usuário não encontrado' });
-      }
-
-      const isMatch = await bcrypt.compare(senha, user.senha);
-      if (!isMatch) {
-          return res.status(400).json({ success: false, message: 'Senha incorreta' });
-      }
-
-      res.json({ success: true });
-  } catch (err) {
-      console.error(err);
-      res.status(500).json({ success: false, message: 'Erro no servidor' });
-  }
-});
 
 
 app.listen(port, () => {

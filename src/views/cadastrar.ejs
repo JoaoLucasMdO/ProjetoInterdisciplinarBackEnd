@@ -1,102 +1,110 @@
 <%- include('header'); -%>
 
-<body>
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card shadow-lg border-0">
-                    <div class="card-header bg-primary text-white text-center">
-                        <h1>Cadastrar</h1>
+    <body>
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-header bg-primary text-white text-center">
+                            <h1>Cadastrar</h1>
+                        </div>
+                        <div class="d-flex justify-content-center mt-4">
+                            <object data="images/Usuario.svg" type="image/svg+xml" class="mt-4"
+                                style="width: 40%;"></object>
+                        </div>
+                        <div class="card-body">
+                            <form id="cadastroForm" method="post">
+                                <div class="mb-3">
+                                    <label for="nome" class="form-label">Nome:</label>
+                                    <input type="text" class="form-control" id="nome" name="nome" autofocus
+                                        autocomplete="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">E-mail:</label>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        autocomplete="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="senha" class="form-label">Senha:</label>
+                                    <input type="password" class="form-control" id="senha" name="senha" required>
+                                </div>
+                                <div class="d-grid gap-2 mt-4">
+                                    <button type="submit" class="btn btn-primary btn-lg">Cadastrar</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer text-muted text-center">
+                            Já possui cadastro? <a href="/login" class="text-primary">Realizar Login</a>
+                        </div>
                     </div>
-                    <div class="d-flex justify-content-center mt-4">
-                        <object data="images/Usuario.svg" type="image/svg+xml" class="mt-4" style="width: 40%;"></object>
-                    </div>
-                    <div class="card-body">
-                        <form id="cadastroForm" method="post">
-                            <div class="mb-3">
-                                <label for="nome" class="form-label">Nome:</label>
-                                <input type="text" class="form-control" id="nome" name="nome" autofocus autocomplete="name" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">E-mail:</label>
-                                <input type="email" class="form-control" id="email" name="email" autocomplete="email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="senha" class="form-label">Senha:</label>
-                                <input type="password" class="form-control" id="senha" name="senha" required>
-                            </div>
-                            <div class="d-grid gap-2 mt-4">
-                                <button type="submit" class="btn btn-primary btn-lg">Cadastrar</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="card-footer text-muted text-center">
-                        Já possui cadastro? <a href="/login" class="text-primary">Realizar Login</a>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalMensagem" tabindex="-1" aria-labelledby="modalMensagemLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalMensagemLabel">Mensagem</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p id="mensagem"></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="modal fade" id="modalMensagem" tabindex="-1" aria-labelledby="modalMensagemLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalMensagemLabel">Mensagem</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p id="mensagem"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        <script>
+            const urlBase = window.location.href.replace(/\/[^\/]*$/,'');
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+            document.addEventListener('DOMContentLoaded', function () {
+                document.getElementById('cadastroForm').addEventListener('submit', function (event) {
+                    event.preventDefault(); // Evita o envio do formulário
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('cadastroForm').addEventListener('submit', function(event) {
-                event.preventDefault(); // Evita o envio do formulário
+                    const nome = document.getElementById('nome').value;
+                    const email = document.getElementById('email').value;
+                    const senha = document.getElementById('senha').value;
 
-                const nome = document.getElementById('nome').value;
-                const email = document.getElementById('email').value;
-                const senha = document.getElementById('senha').value;
+                    fetch(`${urlBase}/usuario`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ nome, email, senha })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.acknowledged) {
+                                const dataEnvio = new Date().toLocaleString();
+                                const mensagem = `${data.message} em ${dataEnvio}.`;
+                                document.getElementById('mensagem').textContent = mensagem;
+                                new bootstrap.Modal(document.getElementById('modalMensagem')).show();
 
-                fetch('/cadastro', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ nome, email, senha })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.message) {
-                        const dataEnvio = new Date().toLocaleString();
-                        const mensagem = `${data.message} em ${dataEnvio}.`;
-                        document.getElementById('mensagem').textContent = mensagem;
-                        new bootstrap.Modal(document.getElementById('modalMensagem')).show();
-
-                        // Redirecionar para a página de login após 2 segundos
-                        setTimeout(function() {
-                            window.location.href = '/login';
-                        }, 2000);
-                    } else if (data.errors) {
-                        const mensagem = 'Erro: ' + data.errors.map(err => err.msg).join(', ');
-                        document.getElementById('mensagem').textContent = mensagem;
-                        new bootstrap.Modal(document.getElementById('modalMensagem')).show();
-                    }
-                })
-                .catch(error => {
-                    const mensagem = 'Erro ao conectar ao servidor. Por favor, tente novamente mais tarde.';
-                    document.getElementById('mensagem').textContent = mensagem;
-                    new bootstrap.Modal(document.getElementById('modalMensagem')).show();
+                                if (data.message) {
+                                    document.getElementById('mensagem').innerHTML = `<span class='text-success'>Usuário criado com sucesso! 
+                                    <br> por favor efetue o login. </span>`
+                                    msgModal.show()
+                                    setTimeout(() => {
+                                        window.location.href = 'login';
+                                    }, 4000)
+                                }
+                            } else if (data.errors) {
+                                const mensagem = 'Erro: ' + data.errors.map(err => err.msg).join(', ');
+                                document.getElementById('mensagem').textContent = mensagem;
+                                new bootstrap.Modal(document.getElementById('modalMensagem')).show();
+                            }
+                        })
+                        .catch(error => {
+                            const mensagem = 'Erro ao conectar ao servidor. Por favor, tente novamente mais tarde.';
+                            document.getElementById('mensagem').textContent = mensagem;
+                            new bootstrap.Modal(document.getElementById('modalMensagem')).show();
+                        });
                 });
             });
-        });
-    </script>
-</body>
+        </script>
+    </body>
 
 
-<%- include('footer'); -%>
+    <%- include('footer'); -%>

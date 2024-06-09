@@ -46,9 +46,6 @@ app.use(usuarioRoute)
 app.use(cursoRoute)
 app.use(horarioRoute)
 
-//app.use('../public/css/style.css', express.static('index'));
-
-
 app.listen(port, () => {
     console.log(`Projeto rodando na porta:${port}`)
   })

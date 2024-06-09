@@ -1,6 +1,7 @@
 <%- include('header'); -%>
 
-<body class="bg-light">
+
+<body>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -51,10 +52,48 @@
         </div>
     </div>
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRmH9G4ZQ5q6R5By5B2qNl5Wj/psI1p5/fpaVJ9Oa" crossorigin="anonymous"></script>
 
-    <script src="js/login.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#formLogin').on('submit', function(event) {
+                event.preventDefault(); // Evita o envio do formulário
+
+                const login = $('#login').val();
+                const senha = $('#senha').val();
+
+                $.ajax({
+                    url: '/login',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ login, senha }),
+                    success: function(data) {
+                        if (data.success) {
+                            const mensagem = 'Login realizado com sucesso!';
+                            $('#mensagem').text(mensagem);
+                            $('#modalMensagem').modal('show');
+
+                            // Redirecionar para a página principal após 2 segundos
+                            setTimeout(function() {
+                                window.location.href = '/main'; // Ajuste a rota conforme necessário
+                            }, 2000);
+                        } else {
+                            const mensagem = 'Erro: ' + data.message;
+                            $('#mensagem').text(mensagem);
+                            $('#modalMensagem').modal('show');
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        const mensagem = 'Erro ao conectar ao servidor. Por favor, tente novamente mais tarde.';
+                        $('#mensagem').text(mensagem);
+                        $('#modalMensagem').modal('show');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
+
 
 <%- include('footer'); -%>

@@ -15,4 +15,5 @@ usuarioRoutes.get('/cadastrarHorario', usuarioController.cadastrarHorario);
 usuarioRoutes.get('/imprimir', usuarioController.imprimir);
 usuarioRoutes.get('/inicio', usuarioController.inicio);
 
+
 module.exports = usuarioRoutes

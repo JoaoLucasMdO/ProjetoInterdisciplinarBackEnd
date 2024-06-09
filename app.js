@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const app = express()
 const port = 4000
 const bcrypt = require('bcryptjs');
+
+import swaggerRoute from "./src/routes/swagger.route"
   
 let db = mongoose.connection;
 
@@ -65,6 +67,7 @@ app.use(professorRoute)
 app.use(usuarioRoute)
 app.use(cursoRoute)
 app.use(horarioRoute)
+app.use("/doc", swaggerRoute);
 
 app.listen(port, () => {
     console.log(`Projeto rodando na porta:${port}`)

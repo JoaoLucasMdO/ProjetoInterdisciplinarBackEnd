@@ -1,0 +1,30 @@
+<%- include('header'); -%>
+
+<body>
+
+<!-- Barra Lateral -->
+
+<%- include('menuLateral'); -%>
+
+<div class="container mt-5">
+        <div class="col-md-9">
+            <h3>Novo Registro de Professor</h3>
+            <form id="registration-form">
+                <div class="form-group">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" placeholder="Nome do Professor" required class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="category">CPF:</label>
+                    <input type="text" id="category" name="category" placeholder="Categoria" required class="form-control">
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <button type="button" class="btn btn-secondary">Cancelar</button>
+            </form>
+        </div>
+    </div>
+</div>
+

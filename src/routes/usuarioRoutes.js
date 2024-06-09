@@ -9,7 +9,9 @@ usuarioRoutes.get('/usuario', usuarioController.cadastro)
 usuarioRoutes.get('/login', usuarioController.login)
 
 usuarioRoutes.get('/listar', usuarioController.listar)
-usuarioRoutes.get('/registrarProf', usuarioController.registrarProf)
-
+usuarioRoutes.get('/cadastrarProfessor', usuarioController.cadastrarProfessor)
+usuarioRoutes.get('/cadastrarMateria', usuarioController.cadastrarMateria)
+usuarioRoutes.get('/cadastrarHorario', usuarioController.cadastrarHorario)
+usuarioRoutes.get('/imprimir', usuarioController.imprimir)
 
 module.exports = usuarioRoutes

@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/listar', (req, res) => {
-  res.render('index');
+  res.render('listar');
 });
 
 // Configurar acesso à BD.

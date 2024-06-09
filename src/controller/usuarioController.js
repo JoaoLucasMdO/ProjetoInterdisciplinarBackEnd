@@ -84,7 +84,18 @@ exports.listar = function (req, res){
     res.render('listar')
 };
 
-exports.registrarProf = function (req, res){
-    res.render('registrarProf')
+exports.cadastrarProfessor = function (req, res){
+    res.render('cadastrarProfessor')
 };
 
+exports.cadastrarMateria = function (req, res){
+    res.render('cadastrarMateria')
+};
+
+exports.cadastrarHorario = function (req, res){
+    res.render('cadastrarHorario')
+};
+
+exports.imprimir = function (req, res){
+    res.render('imprimir')
+};

@@ -21,6 +21,10 @@ app.get('/', (req, res) => {
   res.render('login', {mensagemLogin:""})
 })
 
+app.get('/index', (req, res) => {
+  res.render('index');
+});
+
 app.get('/listar', (req, res) => {
   res.render('listar');
 });

@@ -99,3 +99,7 @@ exports.cadastrarHorario = function (req, res){
 exports.imprimir = function (req, res){
     res.render('imprimir')
 };
+
+exports.inicio = function (req, res){
+    res.render('index')
+};

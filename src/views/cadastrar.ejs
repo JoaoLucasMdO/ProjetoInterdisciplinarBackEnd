@@ -13,7 +13,7 @@
                                 style="width: 40%;"></object>
                         </div>
                         <div class="card-body">
-                            <form id="cadastroForm" method="post">
+                            <form id="formUsuario" method="post">
                                 <div class="mb-3">
                                     <label for="nome" class="form-label">Nome:</label>
                                     <input type="text" class="form-control" id="nome" name="nome" autofocus
@@ -57,52 +57,44 @@
         </div>
 
         <script>
-            const urlBase = window.location.href.replace(/\/[^\/]*$/,'');
+            const urlBase = window.location.href.replace(/\/[^\/]*$/, '')
 
-            document.addEventListener('DOMContentLoaded', function () {
-                document.getElementById('cadastroForm').addEventListener('submit', function (event) {
-                    event.preventDefault(); // Evita o envio do formulário
+            document.getElementById('formUsuario').addEventListener('submit', function (event) {
+                event.preventDefault() //Evita o recarregamento
+                const msgModal = new bootstrap.Modal(document.getElementById('modalMensagem'))
+                //Obtendo os dados do formulário
+                const nome = document.getElementById('nome').value
+                const email = document.getElementById('email').value
+                const senha = document.getElementById('senha').value
+                //Criando o objeto de inclusão
+                const dadosUsuario = { nome: nome, email: email, senha: senha }
 
-                    const nome = document.getElementById('nome').value;
-                    const email = document.getElementById('email').value;
-                    const senha = document.getElementById('senha').value;
-
-                    fetch(`${urlBase}/usuario`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ nome, email, senha })
+                //Efetuar o POST para o endpoint
+                fetch(`${ urlBase }/usuario`,{
+                    method: 'POST',
+                    headers: { "Content-type": "application/json" },
+                    body: JSON.stringify(dadosUsuario)
+                }).then(response => response.json())
+                    .then(data => {
+                        //Verifica se o usuário foi cadastrado
+                        if (data.status = 201) {
+                            document.getElementById('mensagem').innerHTML = `
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            Usuário criado com sucesso! Efetue o login.
+                            </div>`;
+                            msgModal.show()
+                            setTimeout(() => {
+                                window.location.href = 'login'
+                            }, 4000)
+                        } else if (data.status = 400) {
+                            //Vamos pegar os erros da API
+                            const errorMessages = data.errors.map(error => error.msg).join('<br>')
+                            //Alteramos a mensagem no modal
+                            document.getElementById('mensagem').innerHTML = `<span class='text-danger'>${errorMessages}</span>`;
+                            msgModal.show()
+                        }
                     })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.status = 201) {
-                                const dataEnvio = new Date().toLocaleString();
-                                const mensagem = `${data.message} em ${dataEnvio}.`;
-                                document.getElementById('mensagem').textContent = mensagem;
-                                new bootstrap.Modal(document.getElementById('modalMensagem')).show();
-
-                                if (data.message) {
-                                    document.getElementById('mensagem').innerHTML = `<span class='text-success'>Usuário criado com sucesso! 
-                                    <br> por favor efetue o login. </span>`
-                                    msgModal.show()
-                                    setTimeout(() => {
-                                        window.location.href = 'login';
-                                    }, 4000)
-                                }
-                            } else if (data.status = 400) {
-                                const mensagem = 'Erro: ' + data.errors.map(err => err.msg).join(', ');
-                                document.getElementById('mensagem').textContent = mensagem;
-                                new bootstrap.Modal(document.getElementById('modalMensagem')).show();
-                            }
-                        })
-                        .catch(error => {
-                            const mensagem = 'Erro ao conectar ao servidor. Por favor, tente novamente mais tarde.';
-                            document.getElementById('mensagem').textContent = mensagem;
-                            new bootstrap.Modal(document.getElementById('modalMensagem')).show();
-                        });
-                });
-            });
+            })
         </script>
     </body>
 

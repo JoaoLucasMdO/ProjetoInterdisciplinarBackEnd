@@ -56,42 +56,42 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRmH9G4ZQ5q6R5By5B2qNl5Wj/psI1p5/fpaVJ9Oa" crossorigin="anonymous"></script>
 
     <script>
-        $(document).ready(function() {
-            $('#formLogin').on('submit', function(event) {
-                event.preventDefault(); // Evita o envio do formulário
+        const urlBase = 'http://localhost:4000/api'
 
-                const login = $('#login').val();
-                const senha = $('#senha').val();
-
-                $.ajax({
-                    url: '/login',
-                    method: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify({ login, senha }),
-                    success: function(data) {
-                        if (data.success) {
-                            const mensagem = 'Login realizado com sucesso!';
-                            $('#mensagem').text(mensagem);
-                            $('#modalMensagem').modal('show');
-
-                            // Redirecionar para a página principal após 2 segundos
-                            setTimeout(function() {
-                                window.location.href = '/main'; // Ajuste a rota conforme necessário
-                            }, 2000);
-                        } else {
-                            const mensagem = 'Erro: ' + data.message;
-                            $('#mensagem').text(mensagem);
-                            $('#modalMensagem').modal('show');
-                        }
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        const mensagem = 'Erro ao conectar ao servidor. Por favor, tente novamente mais tarde.';
-                        $('#mensagem').text(mensagem);
-                        $('#modalMensagem').modal('show');
-                    }
-                });
-            });
-        });
+document.getElementById('formLogin')
+        .addEventListener('submit', function(event){
+            event.preventDefault() //Evita o recarregamento da página
+            const msgModal = new bootstrap.Modal(document.getElementById('modalMensagem'))
+            //Obtendo os dados do formulário
+            const login = document.getElementById('login').value
+            const senha = document.getElementById('senha').value
+            //Criando o objeto de autenticação
+            const dadosLogin = {
+                email: login,
+                senha: senha
+            }
+            //Efetuar o POST para o endpoint de login
+            fetch(`${urlBase}/usuarios/login`, {
+                method: 'POST',
+                headers: {"Content-type": "application/json"},
+                body: JSON.stringify(dadosLogin)
+            })
+            .then(response => response.json())
+            .then(data => {
+                //Verifica se o token foi retornado
+                if(data.access_token){
+                    //Armazenamos o token no LocalStorage
+                    localStorage.setItem('token', data.access_token)
+                    window.location.href = 'menu.html'
+                }else if(data.errors){
+                    //Vamos pegar os erros da API
+                    const errorMessages = data.errors.map(error => error.msg).join('<br>')
+                    //Alteramos a mensagem modal
+                    document.getElementById('mensagem').innerHTML = `<span class='text-danger'>${errorMessages}</span>`
+                    msgModal.show()
+                }          
+            })
+        })
     </script>
 </body>
 

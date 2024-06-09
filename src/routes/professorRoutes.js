@@ -11,4 +11,5 @@ professorRoutes.delete('/professor/:id', auth.autenticar, professorController.de
 professorRoutes.delete('/professor/curso/:id', auth.autenticar, professorController.delCurso)
 professorRoutes.put('/professor/:id', auth.autenticar, professorController.attProf)
 
+
 module.exports = professorRoutes

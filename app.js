@@ -3,6 +3,8 @@ const bodyParser = require('body-parser')
 const config = require('dotenv')
 const app = express()
 const port = 4000
+const path = require('path');
+
 config.config()
 
 const professorRoute = require('./src/routes/professorRoutes')
@@ -18,6 +20,10 @@ app.set('views', './src/views')
 app.get('/', (req, res) => {
   res.render('login', {mensagemLogin:""})
 })
+
+app.get('/listar', (req, res) => {
+  res.render('index');
+});
 
 // Configurar acesso à BD.
 const mongoose = require('mongoose');
@@ -35,6 +41,8 @@ app.use(professorRoute)
 app.use(usuarioRoute)
 app.use(cursoRoute)
 app.use(horarioRoute)
+
+//app.use('../public/css/style.css', express.static('index'));
 
 
 app.listen(port, () => {

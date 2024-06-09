@@ -8,4 +8,5 @@ horarioRoutes.get('/horario', auth.autenticar, horarioController.gethorario)
 horarioRoutes.get('/horario/:id', auth.autenticar, horarioController.gethorarioId)
 horarioRoutes.delete('/horario/:id', auth.autenticar, horarioController.delhorario)
 
+
 module.exports = horarioRoutes

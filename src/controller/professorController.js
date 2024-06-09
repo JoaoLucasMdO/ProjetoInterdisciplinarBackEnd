@@ -66,7 +66,7 @@ exports.addCurso = async function (req, res) {
     } catch (err) {
         res.status(500).send({ message: `${err.message} - falha ao adicionar o curso.` })
     }
-}
+};
 
 exports.delCurso = async function (req,res) {
     try{
@@ -79,4 +79,5 @@ exports.delCurso = async function (req,res) {
     }catch(err){
         res.status(500).send({ message: `${err.message} - falha ao remover o curso.` })
     }
-}
+};
+

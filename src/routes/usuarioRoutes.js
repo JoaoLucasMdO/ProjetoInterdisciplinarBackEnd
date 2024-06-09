@@ -8,4 +8,8 @@ usuarioRoutes.post('/usuario/login', usuarioController.login)
 usuarioRoutes.get('/usuario', usuarioController.cadastro)
 usuarioRoutes.get('/login', usuarioController.login)
 
+usuarioRoutes.get('/listar', usuarioController.listar)
+usuarioRoutes.get('/registrarProf', usuarioController.registrarProf)
+
+
 module.exports = usuarioRoutes

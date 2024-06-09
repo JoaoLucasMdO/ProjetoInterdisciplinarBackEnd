@@ -66,11 +66,6 @@ app.use(usuarioRoute)
 app.use(cursoRoute)
 app.use(horarioRoute)
 
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-
 app.listen(port, () => {
     console.log(`Projeto rodando na porta:${port}`)
   })

@@ -29,9 +29,7 @@ exports.create = async function(req, res){
     }
 };
 
-
-
-exports.login = async function (req, res) {
+exports.logar = async function (req, res) {
     //obtendo os dados para o login
     const { email, senha } = req.body
     try {
@@ -79,28 +77,4 @@ exports.cadastro = function (req, res){
 
 exports.login = function (req, res){
     res.render('login')
-};
-
-exports.listar = function (req, res){
-    res.render('listar')
-};
-
-exports.cadastrarProfessor = function (req, res){
-    res.render('cadastrarProfessor')
-};
-
-exports.cadastrarMateria = function (req, res){
-    res.render('cadastrarMateria')
-};
-
-exports.cadastrarHorario = function (req, res){
-    res.render('cadastrarHorario')
-};
-
-exports.imprimir = function (req, res){
-    res.render('imprimir')
-};
-
-exports.inicio = function (req, res){
-    res.render('index')
 };

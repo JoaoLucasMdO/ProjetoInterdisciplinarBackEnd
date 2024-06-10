@@ -7,7 +7,7 @@ exports.getProf = async function (req, res) {
     */
     try {
         const result = await Professor.find()
-        res.render('professor')
+        res.status(200).render('cadastrarProfessor', {professores: result})
     } catch (err) {
         res.status(500).json(err)
     }
@@ -27,6 +27,22 @@ exports.getProfId = async function (req, res) {
     }
 };
 
+exports.getProfIdLista = async function (req, res) {
+    /*
+    #swagger.tags = ['Professor']
+    #swagger.description = 'Obtém um professor pelo ID'
+    #swagger.parameters['id'] = { description: 'ID do professor' }
+    */
+    try {
+        const professor = await Professor.findById(req.params.id)
+        const result = await Professor.find()
+        res.status(200).render('editarProfessor', {professores: result, professor: professor})
+    } catch (err) {
+        res.status(500).json(err)
+    }
+};
+
+
 exports.attProf = async function (req, res) {
     /*
     #swagger.tags = ['Professor']
@@ -34,7 +50,7 @@ exports.attProf = async function (req, res) {
     #swagger.parameters['id'] = { description: 'ID do professor' }
     */
     try {
-        const result = await Professor.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        const result = await Professor.findByIdAndUpdate(req.body.id, req.body, {new: false})
         res.status(200).json(result)
     } catch (err) {
         res.status(500).json(err)

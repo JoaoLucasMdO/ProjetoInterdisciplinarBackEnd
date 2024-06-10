@@ -13,7 +13,7 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
   
 let db = mongoose.connection;
 
-let url = 'mongodb+srv://GesleyOliveira:32475297@fatecvotorantim.op8iqc5.mongodb.net/FatecVotorantim';
+let url = 'mongodb+srv://janmello123:joao123@projetointerdisciplinar.yuod8po.mongodb.net/projetoInterdisciplinar';
 
 
 const { validaProfessor, validarCadastroProfessor } = require('./src/controller/validacoes');

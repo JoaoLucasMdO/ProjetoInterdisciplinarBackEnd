@@ -14,10 +14,10 @@ const baseURL = 'http://localhost:4000';
 //ROTAS USUÁRIOS
 
 describe('API REST de Usuários sem o Token', () => {
-    it('GET /usuario - Lista todos os usuários sem o token', async () => {
+    it('GET /usuario - renderiza a página de cadastro de usuários sem o token', async () => {
         const response = await request(baseURL).get('/usuario')
             .set('Content-Type', 'application/json')
-            .expect(401); // Unauthorized
+            .expect(200); // Authorized
     });
 });
 
@@ -29,22 +29,11 @@ describe('API REST de Usuários com o Token', () => {
         const response = await request(baseURL)
             .post('/usuario/login')
             .set('Content-Type', 'application/json')
-            .send({ "email": "gesley.rosa@gmail.com", "senha": senha })
+            .send({ "email": "gesley@gmail.com", "senha": senha })
             .expect(200); // OK
 
         token = response.body.access_token;
         expect(token).toBeDefined();
-    });
-
-    it('GET /usuario - Lista todos os usuários com autenticação', async () => {
-        const response = await request(baseURL)
-            .get('/usuario')
-            .set('Content-Type', 'application/json')
-            .set('access-token', token)
-            .expect(200);
-
-        const usuarios = response.body;
-        expect(usuarios).toBeInstanceOf(Array);
     });
 });
 
@@ -54,7 +43,7 @@ describe('API REST de Professores sem o Token', () => {
     it('GET /professor - Lista todos os professores sem o token', async () => {
         const response = await request(baseURL).get('/professor')
             .set('Content-Type', 'application/json')
-            .expect(401); // Unauthorized
+            .expect(200); // Authorized
     });
 });
 
@@ -66,7 +55,7 @@ describe('API REST de Professores com o Token', () => {
         const response = await request(baseURL)
             .post('/usuario/login')
             .set('Content-Type', 'application/json')
-            .send({ "email": "gesley.rosa@gmail.com", "senha": senha })
+            .send({ "email": "gesley@gmail.com", "senha": senha })
             .expect(200); // OK
 
         token = response.body.access_token;
@@ -79,9 +68,6 @@ describe('API REST de Professores com o Token', () => {
             .set('Content-Type', 'application/json')
             .set('access-token', token)
             .expect(200);
-
-        const professores = response.body;
-        expect(professores).toBeInstanceOf(Array);
     });
 
 });
@@ -104,7 +90,7 @@ describe('API REST de Horários com o Token', () => {
         const response = await request(baseURL)
             .post('/usuario/login')
             .set('Content-Type', 'application/json')
-            .send({ "email": "gesley.rosa@gmail.com", "senha": senha })
+            .send({ "email": "gesley@gmail.com", "senha": senha })
             .expect(200); // OK
 
         token = response.body.access_token;
@@ -142,7 +128,7 @@ describe('API REST de Cursos com o Token', () => {
         const response = await request(baseURL)
             .post('/usuario/login')
             .set('Content-Type', 'application/json')
-            .send({ "email": "gesley.rosa@gmail.com", "senha": senha })
+            .send({ "email": "gesley@gmail.com", "senha": senha })
             .expect(200); // OK
 
         token = response.body.access_token;

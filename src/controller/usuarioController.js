@@ -1,4 +1,5 @@
 var Usuario = require('../models/usuarioModel')
+const { validationResult } = require('express-validator');
 
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
@@ -10,21 +11,28 @@ exports.create = async function(req, res){
        */
     //Criptografando a senha
     //genSalt => impede que 2 senhas iguais tenham resultados iguais
-    const salt = await bcrypt.genSalt(10)
-    req.body.senha = await bcrypt.hash(req.body.senha, salt)
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(422).json({ errors: errors.array() });
+    }
 
-    let usuario = new Usuario(
-        {
+    try {
+        // Criptografando a senha
+        const salt = await bcrypt.genSalt(10);
+        req.body.senha = await bcrypt.hash(req.body.senha, salt);
+
+        // Criando um novo usuário
+        let usuario = new Usuario({
             nome: req.body.nome,
             email: req.body.email,
             senha: req.body.senha
-        }
-    );
+        });
 
-    try{
-        usuario.save().then(result => res.status(201).send(result))
-    }catch(err){
-        err => res.status(400).json(err)
+        // Salvando o usuário no banco de dados
+        const result = await usuario.save();
+        res.status(201).send(result);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
     }
 };
 
@@ -80,7 +88,7 @@ exports.cadastro = function (req, res){
        #swagger.tags = ['Usuario']
        #swagger.description = 'Direciona o usuário para a página de cadastro'
        */
-    res.render('cadastrar')
+    res.status(200).render('cadastrar')
 };
 
 exports.login = function (req, res){

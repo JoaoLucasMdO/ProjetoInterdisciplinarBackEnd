@@ -6,7 +6,7 @@ let usuarioSchema = new Schema({
         type:String, required: true, max: 40
     },
     email:{
-        type:String, required: true, max:40
+        type:String, required: true, max:40, unique: true
     },
     senha:{
         type:String, required: true, max:40

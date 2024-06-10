@@ -5,7 +5,7 @@ const auth = require('../middleware/auth')
 const { check, validationResult } = require('express-validator');
 const  validacao  = require('../controller/validacoes')
 
-professorRoutes.post('/professor', auth.autenticar, professorController.createProf)
+professorRoutes.post('/professor', auth.autenticar, validacao.validaProfessor(), professorController.createProf)
 professorRoutes.post('/professor/curso/:id', auth.autenticar, professorController.addCurso)
 professorRoutes.get('/professor', professorController.getProf)
 professorRoutes.get('/professor/:id', auth.autenticar, professorController.getProfId)

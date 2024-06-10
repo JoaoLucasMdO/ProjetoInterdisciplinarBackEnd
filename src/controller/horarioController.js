@@ -75,3 +75,11 @@ exports.createhorario = function (req, res) {
         res.status(500).send({ message: `${err.message} - falha ao cadastrar o horario.` })
     }
 };
+
+exports.getInicio = function (req, res) {
+    /*
+    #swagger.tags = ['Horário']
+    #swagger.description = 'Direciona a página inicial'
+    */
+  res.render('index');
+};

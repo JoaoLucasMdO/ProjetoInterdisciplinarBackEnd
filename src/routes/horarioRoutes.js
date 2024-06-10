@@ -5,6 +5,7 @@ const auth = require('../middleware/auth')
 
 horarioRoutes.post('/horario', auth.autenticar, horarioController.createhorario)
 horarioRoutes.get('/horario', auth.autenticar, horarioController.gethorario)
+horarioRoutes.get('/inicio', horarioController.getInicio)
 horarioRoutes.get('/horario/:id', auth.autenticar, horarioController.gethorarioId)
 horarioRoutes.delete('/horario/:id', auth.autenticar, horarioController.delhorario)
 

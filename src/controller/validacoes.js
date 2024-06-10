@@ -1,5 +1,5 @@
 const { check } = require('express-validator');
-const db = require('mongodb'); 
+const db = require('mongoose'); 
 
 exports.validaProfessor = function() {
     return [

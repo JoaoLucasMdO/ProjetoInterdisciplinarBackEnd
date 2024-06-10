@@ -63,6 +63,7 @@ exports.createProf = function (req, res) {
     let professor = new Professor(
         {
             nome: req.body.nome,
+            cpf: req.body.cpf,
             cursos: req.body.cursos
         }
     );

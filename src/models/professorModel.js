@@ -5,6 +5,9 @@ let professorSchema = new Schema({
     nome:{
         type: String, required: true, max:30
     },
+    cpf:{
+        type: String, required: true, max:30
+    },
     cursos:{
         type: Array, required: false
     },

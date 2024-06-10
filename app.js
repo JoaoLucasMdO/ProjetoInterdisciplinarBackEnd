@@ -54,14 +54,6 @@ app.get('/', (req, res) => {
     */
 })
 
-app.get('/index', (req, res) => {
-    /*
-    #swagger.tags = ['Usuario']
-    #swagger.description = 'Direciona a página inicial'
-    */
-  res.render('index');
-});
-
 app.get('/listar', (req, res) => {
     /*
     #swagger.tags = ['Usuario']

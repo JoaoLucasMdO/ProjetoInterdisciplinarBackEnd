@@ -1,4 +1,5 @@
 let Professor = require('../models/professorModel')
+const { validationResult } = require('express-validator');
 
 exports.getProf = async function (req, res) {
     /*
@@ -71,24 +72,33 @@ exports.delProf = async function (req, res) {
     }
 };
 
-exports.createProf = function (req, res) {
+exports.createProf = async function (req, res) {
     /*
     #swagger.tags = ['Professor']
     #swagger.description = 'Insere um novo professor'
     */
-    let professor = new Professor(
-        {
-            nome: req.body.nome,
-            cpf: req.body.cpf,
-            cursos: req.body.cursos
-        }
-    );
+
+    // Verifica se houve algum erro de validação nos parâmetros da requisição
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+         res.status(400).json({ errors: errors.array() });
+    }
+
+    // Cria uma instância de Professor com os dados da requisição
+    let professor = new Professor({
+        nome: req.body.nome,
+        cpf: req.body.cpf,
+        cursos: req.body.cursos
+    });
 
     try {
-        professor.save()
-        res.status(201).send(professor.toJSON())
+        // Tenta salvar o professor no banco de dados
+        await professor.save();
+        // Se o professor for salvo com sucesso, retorna 201 Created
+         res.status(201).send(professor.toJSON());
     } catch (err) {
-        res.status(500).send({ message: `${err.message} - falha ao cadastrar o professor.` })
+        // Se ocorrer um erro ao salvar o professor, retorna 500 Internal Server Error
+         res.status(500).send({ message: `${err.message} - falha ao cadastrar o professor.` });
     }
 };
 

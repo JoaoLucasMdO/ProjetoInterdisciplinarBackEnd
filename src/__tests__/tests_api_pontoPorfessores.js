@@ -9,7 +9,7 @@ const request = require('supertest');
 const dotenv = require('dotenv');
 dotenv.config(); // carrega as variáveis do .env
 
-const baseURL = 'http://localhost:4000/api';
+const baseURL = 'http://localhost:4000';
 
 //ROTAS USUÁRIOS
 

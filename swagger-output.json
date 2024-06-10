@@ -51,19 +51,6 @@
         }
       }
     },
-    "/index": {
-      "get": {
-        "tags": [
-          "Usuario"
-        ],
-        "description": "Direciona a página inicial",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
     "/listar": {
       "get": {
         "tags": [
@@ -156,6 +143,27 @@
             "description": ""
           }
         }
+      }
+    },
+    "/professor/editar/{id}": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
       },
       "delete": {
         "tags": [],
@@ -175,20 +183,12 @@
             "description": ""
           }
         }
-      },
+      }
+    },
+    "/professor/editar": {
       "put": {
         "tags": [],
         "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
         "responses": {
           "default": {
             "description": ""
@@ -462,6 +462,19 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/inicio": {
+      "get": {
+        "tags": [
+          "Horário"
+        ],
+        "description": "Direciona a página inicial",
+        "responses": {
+          "default": {
+            "description": ""
           }
         }
       }

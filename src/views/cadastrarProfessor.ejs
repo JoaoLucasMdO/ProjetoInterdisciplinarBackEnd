@@ -2,7 +2,7 @@
 
     <%- include('menuLateral'); -%>
 
-        <body>
+        <body onload="verificaToken()">
             <div class="container mt-5">
                 <div class="row">
                     <!-- Espaço para cadastrar à esquerda -->
@@ -38,16 +38,24 @@
                                 </thead>
                                 <tbody id="professorList">
                                     <!-- Itera sobre os dados dos professores e renderiza cada linha da tabela -->
-                                    <% professores.forEach(professor => { %>
+                                    <% professores.forEach(professor=> { %>
                                         <tr>
-                                            <td><%= professor.nome %></td>
-                                            <td><%= professor.cpf %></td>
-                                            <td><div class="btn-group" role="group">
-                                                <a href="/professor/editar/<%=professor.id%>"><button class="btn btn-sm btn-primary edit-button">Editar</button></a>
-                                                <button onclick="excluirProf('<%=professor.id%>')" class="btn btn-sm btn-danger delete-button ml-2">Excluir</button>
-                                            </div></td>
+                                            <td>
+                                                <%= professor.nome %>
+                                            </td>
+                                            <td>
+                                                <%= professor.cpf %>
+                                            </td>
+                                            <td>
+                                                <div class="btn-group" role="group">
+                                                    <a href="/professor/editar/<%=professor.id%>"><button
+                                                            class="btn btn-sm btn-primary edit-button">Editar</button></a>
+                                                    <button onclick="excluirProf('<%=professor.id%>')"
+                                                        class="btn btn-sm btn-danger delete-button ml-2">Excluir</button>
+                                                </div>
+                                            </td>
                                         </tr>
-                                    <% }); %>
+                                        <% }); %>
                                 </tbody>
                             </table>
                         </div>
@@ -62,8 +70,10 @@
             <script>
                 const urlBase = window.location.href.replace(/\/[^\/]*$/, '')
                 const access_token = localStorage.getItem('token') || null
+
                 document.getElementById('professorForm').addEventListener('submit', function (event) {
                     event.preventDefault() // evita o recarregamento
+                    
                     let professor = {} // Objeto professor
                     professor = {
                         "nome": document.getElementById('nome').value,
@@ -80,37 +90,47 @@
                     })
                         .then(response => response.json())
                         .then(data => {
-                            if (data.status = 200) {
+                            if (!data.error) {
+                                console.log(data)
                                 alert('Professor incluído com sucesso!')
                                 //limpamos o formulário
-                                window.location.href = 'professor'
-                            } else if (data.errors) {
-                                const errorMessages = data.errors.map(error => error.msg).join('\n')
-                                document.getElementById('mensagem').innerHTML = `<span class='text-danger'> 
-                                ${errorMessages}</span>`
-                                resultadoModal.show() //Mostra o modal
+                                location.reload()
+                            } else {
+                                if (Array.isArray(data.errors)) { // Verifica se data.errors é uma array
+                                    const errorMessages = data.errors.map(error => error.msg).join('\n')
+                                    alert( ` ${errorMessages}`)
+                                } else {
+                                   alert(`${data.error}`)
+                                }
+                                window.location.href = ('/login')
                             }
                         })
                 })
-                function excluirProf(id){
-                        fetch(`${urlBase}/professor/${id}`, {
+                function excluirProf(id) {
+                    fetch(`${urlBase}/professor/editar/${id}`, {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json',
                             'access-token': access_token
                         },
                     }).then(response => response.json())
-                    .then(data => {
-                        if (data.status = 200) {
-                            window.alert(`Professor excluído com sucesso!`)
-                            location.reload()
-                        } else if (data.status = 400) {
-                            //Vamos pegar os erros da API
-                            const errorMessages = data.errors.map(error => error.msg).join('<br>')
-
-                            window.alert(`<span class='text-danger'>${errorMessages}</span>`)
-                        }
-                    })
+                        .then(data => {
+                            if (data.status = 200) {
+                                window.alert(`Professor excluído com sucesso!`)
+                                window.location.reload()
+                            } else {
+                                if (Array.isArray(data.errors)) { // Verifica se data.errors é uma array
+                                    const errorMessages = data.errors.map(error => error.msg).join('\n')
+                                    alert( ` ${errorMessages}`)
+                                } else {
+                                   alert(`${data.error}`)
+                                }
+                                window.location.href = ('/login')
+                            }
+                        })
+                }
+                function verificaToken(){
+                    if(access_token == null) window.location.href = ('/login')
                 }
             </script>
         </body>

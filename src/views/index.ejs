@@ -2,7 +2,7 @@
 
     <%- include('menuLateral'); -%>
 
-        <body>
+        <body onload="verificaToken()">
             <div class="container mt-5">
                 <div class="row">
 
@@ -186,7 +186,10 @@
                 deleteButtons.forEach(button => {
                     button.addEventListener('click', deletarItem);
                 });
-
+                const access_token = localStorage.getItem('token') || null
+                function verificaToken(){
+                    if(access_token == null) window.location.href = ('/login')
+                }
 
             </script>
 

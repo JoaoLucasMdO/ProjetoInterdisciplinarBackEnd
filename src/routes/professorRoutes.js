@@ -8,7 +8,7 @@ professorRoutes.post('/professor/curso/:id', auth.autenticar, professorControlle
 professorRoutes.get('/professor', professorController.getProf)
 professorRoutes.get('/professor/:id', auth.autenticar, professorController.getProfId)
 professorRoutes.get('/professor/editar/:id', professorController.getProfIdLista)
-professorRoutes.delete('/professor/:id', auth.autenticar, professorController.delProf)
+professorRoutes.delete('/professor/editar/:id', auth.autenticar, professorController.delProf)
 professorRoutes.delete('/professor/curso/:id', auth.autenticar, professorController.delCurso)
 professorRoutes.put('/professor/editar', auth.autenticar, professorController.attProf)
 

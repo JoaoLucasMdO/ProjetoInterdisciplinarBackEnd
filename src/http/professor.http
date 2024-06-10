@@ -4,10 +4,11 @@
 ###
 POST {{baseURL}}
 Content-Type: application/json
-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY1YjNlODMzNGNmMjc0NWE4MDk2MWI4In0sImlhdCI6MTcxNzUxMTY0MywiZXhwIjoxNzE3NTk4MDQzfQ.UC9hzMW_Ht1rmNw5cO2Z6gzyD6Ny5OxjX8F_UVd39QM
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY2Nzg0NDA4NjE2YmNjN2QyMTZlN2Q5In0sImlhdCI6MTcxODA2MzI0MiwiZXhwIjoxNzE4MTQ5NjQyfQ.0PAARzcbHhCz63nm4lmHaKk_kcSTXhHQQVzzxZM3d18
 
 {
-    "nome": "Jorge"   
+    "nome": "Jorge",
+    "cpf": 11111111111
 }
 
 //POST insere um curso ao professor pelo id

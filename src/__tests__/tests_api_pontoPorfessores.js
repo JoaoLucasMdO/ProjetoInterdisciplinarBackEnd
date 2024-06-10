@@ -29,7 +29,7 @@ describe('API REST de Usuários com o Token', () => {
         const response = await request(baseURL)
             .post('/usuario/login')
             .set('Content-Type', 'application/json')
-            .send({ "email": "Gesley@gmail.com", "senha": senha })
+            .send({ "email": "gesley@gmail.com", "senha": senha })
             .expect(200); // OK
 
         token = response.body.access_token;
@@ -55,7 +55,7 @@ describe('API REST de Professores com o Token', () => {
         const response = await request(baseURL)
             .post('/usuario/login')
             .set('Content-Type', 'application/json')
-            .send({ "email": "Gesley@gmail.com", "senha": senha })
+            .send({ "email": "gesley@gmail.com", "senha": senha })
             .expect(200); // OK
 
         token = response.body.access_token;
@@ -90,7 +90,7 @@ describe('API REST de Horários com o Token', () => {
         const response = await request(baseURL)
             .post('/usuario/login')
             .set('Content-Type', 'application/json')
-            .send({ "email": "Gesley@gmail.com", "senha": senha })
+            .send({ "email": "gesley@gmail.com", "senha": senha })
             .expect(200); // OK
 
         token = response.body.access_token;
@@ -128,7 +128,7 @@ describe('API REST de Cursos com o Token', () => {
         const response = await request(baseURL)
             .post('/usuario/login')
             .set('Content-Type', 'application/json')
-            .send({ "email": "Gesley@gmail.com", "senha": senha })
+            .send({ "email": "gesley@gmail.com", "senha": senha })
             .expect(200); // OK
 
         token = response.body.access_token;

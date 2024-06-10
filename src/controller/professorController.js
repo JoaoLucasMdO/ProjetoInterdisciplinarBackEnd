@@ -81,7 +81,7 @@ exports.createProf = async function (req, res) {
     // Verifica se houve algum erro de validação nos parâmetros da requisição
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-         res.status(400).json({ errors: errors.array() });
+        return res.status(400).json({ errors: errors.array() });
     }
 
     // Cria uma instância de Professor com os dados da requisição

@@ -83,7 +83,7 @@
                 }).then(response => response.json())
                 .then(data => {
                         //Verifica se o usuário foi cadastrado
-                        if (data.status = 201) {
+                        if (!data.errors) {
                             document.getElementById('mensagem').innerHTML = `<span class='text-success'>Usuário criado com sucesso! 
             <br> por favor efetue o login. </span>`
                             msgModal.show()

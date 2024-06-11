@@ -12,7 +12,7 @@ professorRoutes.get('/professor/:id', auth.autenticar, professorController.getPr
 professorRoutes.get('/professor/editar/:id', professorController.getProfIdLista)
 professorRoutes.delete('/professor/editar/:id', auth.autenticar, professorController.delProf)
 professorRoutes.delete('/professor/curso/:id', auth.autenticar, professorController.delCurso)
-professorRoutes.put('/professor/editar', auth.autenticar, professorController.attProf)
+professorRoutes.put('/professor/editar', auth.autenticar, validacao.validaProfessor(), professorController.attProf)
 
 
 module.exports = professorRoutes

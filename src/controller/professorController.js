@@ -50,6 +50,12 @@ exports.attProf = async function (req, res) {
     #swagger.description = 'Atualiza os dados do professor pelo ID'
     #swagger.parameters['id'] = { description: 'ID do professor' }
     */
+   
+    delete req.body._id //Removemos o _id do body que foi recebido na req.
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
     try {
         const result = await Professor.findByIdAndUpdate(req.body.id, req.body, {new: false})
         res.status(200).json(result)

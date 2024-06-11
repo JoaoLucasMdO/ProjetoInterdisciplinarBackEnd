@@ -20,7 +20,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="cpf">CPF:</label>
-                                <input type="text" id="cpf" name="cpf" value='<%=professor.cpf%>' placeholder="CPF do Professor" required
+                                <input type="text" id="cpf" name="cpf" maxlength="11" value='<%=professor.cpf%>' placeholder="CPF do Professor" required
                                     class="form-control">
                             </div>
                             <button type="submit" class="btn btn-primary">Salvar</button>
@@ -89,14 +89,13 @@
                     })
                         .then(response => response.json())
                         .then(data => {
-                            if (data.status = 200) {
+                            if (!data.errors) {
                                 alert('Professor alterado com sucesso!')
                                 //limpamos o formulário
                                 window.location.assign('/professor')
                             } else if (data.errors) {
                                 const errorMessages = data.errors.map(error => error.msg).join('\n')
-                                window.alert(`<span class='text-danger'> 
-                                ${errorMessages}</span>`)
+                                window.alert(`${errorMessages}`)
                             }
                         })
                 })

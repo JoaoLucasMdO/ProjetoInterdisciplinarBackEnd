@@ -27,7 +27,7 @@ exports.validaUsuario = function() {
     return [
         check('nome')
             .not().isEmpty().trim().withMessage('É obrigatório informar o nome')
-            .isAlpha('pt-BR', { ignore: ' ' }).withMessage('Informe apenas texto')
+            .isAlpha('pt-BR', { ignore: ' ' }).withMessage('Informe apenas texto no nome!')
             .isLength({ min: 3 }).withMessage('Informe no mínimo 3 caracteres')
             .isLength({ max: 100 }).withMessage('Informe no máximo 100 caracteres'),
         check('email')

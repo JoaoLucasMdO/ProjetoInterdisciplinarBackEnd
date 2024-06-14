@@ -13,9 +13,9 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
   
 let db = mongoose.connection;
 
-//let url = 'mongodb://127.0.0.1:27017/projetoInterdisciplinar';
+let url = 'mongodb://127.0.0.1:27017/projetoInterdisciplinar';
 
-let url = 'mongodb+srv://GesleyRosa:Gelao*123@fatec.8bwsw58.mongodb.net';
+//let url = 'mongodb://localhost:27017/';
 
 
 const { validaProfessor, validarCadastroProfessor } = require('./src/controller/validacoes');

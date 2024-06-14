@@ -1,4 +1,4 @@
-let Curso = require('../models/CursoModel')
+let Curso = require('../models/cursoModel')
 
 exports.getCurso = async function (req, res) {
     /*
@@ -7,7 +7,7 @@ exports.getCurso = async function (req, res) {
     */
     try {
         const result = await Curso.find()
-        res.status(200).json(result)
+        res.status(200).render('cadastrarMateria')
     } catch (err) {
         res.status(500).json(err)
     }

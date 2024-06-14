@@ -7,7 +7,7 @@ exports.gethorario = async function (req, res) {
        */
     try {
         const result = await Horario.find().populate('pertenceProf').populate('pertenceCurso')
-        res.status(200).json(result)
+        res.status(200).render('cadastrarHorario')
     } catch (err) {
         res.status(500).json(err)
     }

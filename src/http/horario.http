@@ -17,7 +17,7 @@ access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY2M
 ###
 GET {{baseURL}}
 Content-Type: application/json
-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY2MjM0M2FjMjYzMDViNWMyMjRlYTc3In0sImlhdCI6MTcxNzcxMTkzNiwiZXhwIjoxNzE3Nzk4MzM2fQ.mWb_w3pnT0IbT7lI78_U_84v8Yd3c_0N2-jmlL2brHc
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY2NzkyMGJkZTk0NjBlYWRjODU1NTBlIn0sImlhdCI6MTcxODMyMDA3MiwiZXhwIjoxNzE4NDA2NDcyfQ.G5aedKKvMT8afnoCDR79-MB06Biw-NcCaBjncL22Ppw
 
 {
 

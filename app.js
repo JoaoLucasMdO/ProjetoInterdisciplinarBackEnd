@@ -15,7 +15,11 @@ let db = mongoose.connection;
 
 let url = 'mongodb://127.0.0.1:27017/projetoInterdisciplinar';
 
+<<<<<<< HEAD
 //let url = 'mongodb://localhost:27017/';
+=======
+//let url = 'mongodb+srv://GesleyRosa:Gelao*123@fatec.8bwsw58.mongodb.net';
+>>>>>>> 56db09cc3255fe9f7d159206c32659a7e37802ae
 
 
 const { validaProfessor, validarCadastroProfessor } = require('./src/controller/validacoes');

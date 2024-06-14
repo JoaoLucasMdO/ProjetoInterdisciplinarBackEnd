@@ -6,7 +6,7 @@ let professorSchema = new Schema({
         type: String, required: true, max:30
     },
     cpf:{
-        type: String, required: true, max:30
+        type: Number, required: true, max:30
     },
     cursos:{
         type: Array, required: false

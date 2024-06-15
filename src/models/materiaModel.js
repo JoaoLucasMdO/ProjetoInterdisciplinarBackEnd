@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-let cursoSchema = new Schema({
+let materiaSchema = new Schema({
     nome:{
         type: String, required: true, max:30
     },
@@ -10,4 +10,4 @@ let cursoSchema = new Schema({
     },
 })
 
-module.exports = mongoose.model('Curso', cursoSchema)
+module.exports = mongoose.model('Materia', materiaSchema)

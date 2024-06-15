@@ -15,11 +15,7 @@ let db = mongoose.connection;
 
 let url = 'mongodb://127.0.0.1:27017/projetoInterdisciplinar';
 
-<<<<<<< HEAD
 //let url = 'mongodb://localhost:27017/';
-=======
-//let url = 'mongodb+srv://GesleyRosa:Gelao*123@fatec.8bwsw58.mongodb.net';
->>>>>>> 56db09cc3255fe9f7d159206c32659a7e37802ae
 
 
 const { validaProfessor, validarCadastroProfessor } = require('./src/controller/validacoes');
@@ -34,19 +30,15 @@ app.post('/professores', validaProfessor, async (req, res) => {
   res.status(201).send('Professor cadastrado com sucesso');
 });
 
-
-
 config.config()
 
 const professorRoute = require('./src/routes/professorRoutes')
 const usuarioRoute = require('./src/routes/usuarioRoutes')
-const cursoRoute = require('./src/routes/cursoRoutes')
+const materiaRoute = require('./src/routes/materiaRoutes')
 const horarioRoute = require('./src/routes/horarioRoutes')
 
 app.set('view engine', 'ejs') 
 app.set('views', './src/views')
-
-
 
 app.get('/', (req, res) => {
   /*
@@ -60,15 +52,7 @@ app.get('/', (req, res) => {
     */
 })
 
-app.get('/listar', (req, res) => {
-    /*
-    #swagger.tags = ['Usuario']
-    #swagger.description = 'Lista os professores, com as matérias e os horários'
-    */
-  res.render('listar');
-});
-
-// Configurar acesso à BD.
+//Configurar acesso à BD.
 //const mongoose = require('mongoose');
 //mongodb://127.0.0.1:27017/projetoInterdisciplinar
 //let url = 'mongodb+srv://janmello123:joao123@projetointerdisciplinar.yuod8po.mongodb.net/projetoInterdisciplinar'
@@ -82,7 +66,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(professorRoute)
 app.use(usuarioRoute)
-app.use(cursoRoute)
+app.use(materiaRoute)
 app.use(horarioRoute)
 
 

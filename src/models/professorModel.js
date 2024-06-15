@@ -8,7 +8,7 @@ let professorSchema = new Schema({
     cpf:{
         type: Number, required: true, max:30
     },
-    cursos:{
+    materias:{
         type: Array, required: false
     },
 })

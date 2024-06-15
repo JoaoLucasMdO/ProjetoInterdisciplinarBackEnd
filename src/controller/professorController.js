@@ -94,7 +94,7 @@ exports.createProf = async function (req, res) {
     let professor = new Professor({
         nome: req.body.nome,
         cpf: req.body.cpf,
-        cursos: req.body.cursos
+        materias: req.body.materias
     });
 
     try {
@@ -108,38 +108,38 @@ exports.createProf = async function (req, res) {
     }
 };
 
-exports.addCurso = async function (req, res) {
+exports.addMateria = async function (req, res) {
     /*
     #swagger.tags = ['Professor']
-    #swagger.description = 'Adiciona um curso ao professor'
+    #swagger.description = 'Adiciona uma materia ao professor'
     #swagger.parameters['id'] = { description: 'ID do professor' }
     */
     try {
         let professor = await Professor.findById(req.params.id)
-        professor.cursos.push(req.body.cursos)
+        professor.materias.push(req.body.materias)
 
         await Professor.findByIdAndUpdate(req.params.id, professor)
         res.status(200).send(professor.toJSON())
     } catch (err) {
-        res.status(500).send({ message: `${err.message} - falha ao adicionar o curso.` })
+        res.status(500).send({ message: `${err.message} - falha ao adicionar a materia.` })
     }
 };
 
-exports.delCurso = async function (req,res) {
+exports.delMateria = async function (req,res) {
     /*
     #swagger.tags = ['Professor']
-    #swagger.description = 'Deleta um curso de um professor pelo ID do curso'
+    #swagger.description = 'Deleta uma materia de um professor pelo ID do professor e o nome da matéria'
     #swagger.parameters['id'] = { description: 'ID do professor' }
     */
     try{
         let professor = await Professor.findById(req.params.id)
-        const index = professor.cursos.findIndex(x => x == req.body.cursos)
+        const index = professor.materias.findIndex(x => x == req.body.materias)
 
-        professor.cursos.splice(index, 1)
+        professor.materias.splice(index, 1)
         await Professor.findByIdAndUpdate(req.params.id, professor)
         res.status(200).send(professor.toJSON())
     }catch(err){
-        res.status(500).send({ message: `${err.message} - falha ao remover o curso.` })
+        res.status(500).send({ message: `${err.message} - falha ao remover a materia.` })
     }
 };
 

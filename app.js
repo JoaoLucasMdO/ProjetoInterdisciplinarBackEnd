@@ -1,3 +1,4 @@
+//"Imports"
 const express = require('express')
 const config = require('dotenv')
 const mongoose = require('mongoose');
@@ -7,39 +8,39 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerFile = require('./swagger-output.json');
 const bodyParser = require('body-parser')
 
-app.use(bodyParser.json());
-app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
-
-  
-let db = mongoose.connection;
-
-let url = 'mongodb://127.0.0.1:27017/projetoInterdisciplinar';
-
-//let url = 'mongodb://localhost:27017/';
-
-
-const { validaProfessor, validarCadastroProfessor } = require('./src/controller/validacoes');
-app.use(express.json());
-app.post('/professores', validaProfessor, async (req, res) => {
-  // Se chegou até aqui, os dados estão validados
-  const { name, cpf } = req.body;
-
-  // Salvar os dados no banco de dados
-  await db.collection('professores').insertOne({ name, cpf });
-
-  res.status(201).send('Professor cadastrado com sucesso');
-});
-
-config.config()
-
+//Const Rotas
 const professorRoute = require('./src/routes/professorRoutes')
 const usuarioRoute = require('./src/routes/usuarioRoutes')
 const materiaRoute = require('./src/routes/materiaRoutes')
 const horarioRoute = require('./src/routes/horarioRoutes')
 
+//Uses
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(professorRoute)
+app.use(usuarioRoute)
+app.use(materiaRoute)
+app.use(horarioRoute)
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+app.use(express.json());
+
+//Sets
 app.set('view engine', 'ejs') 
 app.set('views', './src/views')
 
+//Config
+config.config()
+
+//Conexão do Banco
+let db = mongoose.connection;
+//Colocar url pessoal aqui e comentar a debaixo!
+//let url = 'mongodb+srv://janmello123:joao123@projetointerdisciplinar.yuod8po.mongodb.net/projetoInterdisciplinar';
+let url = 'mongodb://127.0.0.1:27017/projetoInterdisciplinar';
+mongoose.connect(url);
+mongoose.Promise = global.Promise;
+db.on('error', console.error.bind(console, 'Erro ao conectar ao MongoDB'));
+
+//Página inicial
 app.get('/', (req, res) => {
   /*
     #swagger.tags = ['Usuario']
@@ -51,24 +52,6 @@ app.get('/', (req, res) => {
     #swagger.description = 'Renderiza a página de Login'
     */
 })
-
-//Configurar acesso à BD.
-//const mongoose = require('mongoose');
-//mongodb://127.0.0.1:27017/projetoInterdisciplinar
-//let url = 'mongodb+srv://janmello123:joao123@projetointerdisciplinar.yuod8po.mongodb.net/projetoInterdisciplinar'
-//let mongoDB = url;
-mongoose.connect(url);
-mongoose.Promise = global.Promise;
-//let db = mongoose.connection;
-db.on('error', console.error.bind(console, 'Erro ao conectar ao MongoDB'));
-
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: false}))
-app.use(professorRoute)
-app.use(usuarioRoute)
-app.use(materiaRoute)
-app.use(horarioRoute)
-
 
 app.listen(port, () => {
     console.log(`Projeto rodando na porta:${port}`)

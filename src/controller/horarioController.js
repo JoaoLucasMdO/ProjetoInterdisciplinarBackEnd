@@ -64,7 +64,7 @@ exports.createhorario = function (req, res) {
             horaInicio: horaI,
             horaFim: horaF,
             pertenceProf: req.body.prof,
-            pertenceCurso: req.body.curso
+            pertenceMateria: req.body.materia
         }
     );
 

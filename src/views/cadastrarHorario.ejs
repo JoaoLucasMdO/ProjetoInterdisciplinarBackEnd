@@ -56,54 +56,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        document.getElementById('schedule-form').addEventListener('submit', function (event) {
-            event.preventDefault(); // Evita o envio do formulário
-
-            const day = document.getElementById('day').value;
-            const entryTime = document.getElementById('entry-time').value;
-            const exitTime = document.getElementById('exit-time').value;
-
-            const newRow = document.createElement('tr');
-
-            newRow.innerHTML = `
-                <td>${day}</td>
-                <td>${entryTime}</td>
-                <td>${exitTime}</td>
-                <td>
-                    <div class="btn-group" role="group">
-                        <button class="btn btn-sm btn-primary edit-button">Editar</button>
-                        <button class="btn btn-sm btn-danger delete-button ml-2">Excluir</button>
-                    </div>
-                </td>
-            `;
-
-            document.getElementById('schedule-list').appendChild(newRow);
-
-            document.getElementById('day').value = 'Segunda-feira';
-            document.getElementById('entry-time').value = '';
-            document.getElementById('exit-time').value = '';
-
-            newRow.querySelector('.edit-button').addEventListener('click', editItem);
-            newRow.querySelector('.delete-button').addEventListener('click', deleteItem);
-        });
-
-        function deleteItem(event) {
-            const row = event.target.closest('tr');
-            row.remove();
-        }
-
-        function editItem(event) {
-            const row = event.target.closest('tr');
-            const day = row.children[0].textContent;
-            const entryTime = row.children[1].textContent;
-            const exitTime = row.children[2].textContent;
-
-            document.getElementById('day').value = day;
-            document.getElementById('entry-time').value = entryTime;
-            document.getElementById('exit-time').value = exitTime;
-
-            row.remove();
-        }
+        
 
         document.addEventListener('click', function (event) {
             if (event.target.classList.contains('delete-button')) {

@@ -13,9 +13,9 @@ let horarioSchema = new Schema({
         ref: 'Professor',
         required: true,
     },
-    pertenceCurso:{
+    pertenceMateria:{
         type:mongoose.Schema.Types.ObjectId,
-        ref: 'Curso',
+        ref: 'Materia',
         required: true,
     }
 })

@@ -4,10 +4,7 @@ const Schema = mongoose.Schema;
 let materiaSchema = new Schema({
     nome:{
         type: String, required: true, max:30
-    },
-    totalHoras:{
-        type: Number, required: true
-    },
+    }
 })
 
 module.exports = mongoose.model('Materia', materiaSchema)

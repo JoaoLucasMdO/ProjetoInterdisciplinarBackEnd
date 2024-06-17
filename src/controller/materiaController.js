@@ -1,4 +1,4 @@
-let Curso = require('../models/materiaModel')
+let Materia = require('../models/materiaModel')
 
 exports.getMateria = async function (req, res) {
     /*
@@ -7,7 +7,7 @@ exports.getMateria = async function (req, res) {
     */
     try {
         const result = await Materia.find()
-        res.status(200).render('cadastrarMateria')
+        res.status(200).render('cadastrarMateria', {materias: result})
     } catch (err) {
         res.status(500).json(err)
     }
@@ -59,8 +59,7 @@ exports.createMateria = function (req, res) {
     */
     let materia = new Materia(
         {
-            nome: req.body.nome,
-            totalHoras: req.body.totalHoras
+            nome: req.body.nome
         }
     );
 

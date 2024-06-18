@@ -93,10 +93,11 @@ exports.createhorario = async function (req, res) {
     }
 };
 
-exports.getInicio = function (req, res) {
+exports.getInicio = async function (req, res) {
     /*
     #swagger.tags = ['Horário']
     #swagger.description = 'Direciona a página inicial'
     */
-  res.render('index');
+    const result = await Horario.find().populate('pertenceProf').populate('pertenceMateria')
+    res.render('index', {horarios: result});
 };

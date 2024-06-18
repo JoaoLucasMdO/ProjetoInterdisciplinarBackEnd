@@ -48,7 +48,7 @@
                             <tr>
                                 <th>Professor</th>
                                 <th>Matéria</th>
-                                <th>Dia</th>
+                                <th>Data</th>
                                 <th>Entrada</th>
                                 <th>Saída</th>
                                 <th>Ações</th>
@@ -65,7 +65,7 @@
                                         <%= horario.pertenceMateria.nome %>
                                     </td>
                                     <td>
-                                        <%= horario.horaInicio.getDate() %>/<%= horario.horaInicio.getMonth() +1 %>
+                                        <%= horario.horaInicio.getDate() %>/<%= horario.horaInicio.getMonth() +1 %>/<%= horario.horaInicio.getFullYear() %>
                                     </td>
                                     <td>
                                         <%= horario.horaInicio.getHours() %>:<%= horario.horaInicio.getMinutes() %>

@@ -50,8 +50,9 @@ exports.atthorario = async function (req, res) {
        #swagger.tags = ['Horário']
        #swagger.description = 'Atualiza o horário pelo id'
        */
+    delete req.body._id //Removemos o _id do body que foi recebido na req.
     try {
-        const result = await Horario.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        const result = await Horario.findByIdAndUpdate(req.body.id, req.body, {new: true})
         res.status(200).json(result)
     } catch (err) {
         res.status(500).json(err)

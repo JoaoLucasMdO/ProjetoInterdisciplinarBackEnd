@@ -9,6 +9,10 @@
                 <h3>Editar Horário</h3>
                 <form id="horarioForm">
                     <div class="form-group">
+                        <label for="name">ID:</label>
+                        <input type="text" id="id" name="id" value='<%=horario._id%>'  readonly class="form-control">
+                    </div>
+                    <div class="form-group">
                         <label for="dia">Dia:</label>
                         <input type="date" id="dia" name="dia" required class="form-control">
                     </div>
@@ -97,15 +101,17 @@
                 document.getElementById('horarioForm').addEventListener('submit', function (event) {
                     event.preventDefault() // evita o recarregamento
                     let horario = {} // Objeto professor
+                    let id = document.getElementById('id').value
                     horario = {
+                        "id":id,
                         "horaInicio": new Date(`${document.getElementById('dia').value} ${document.getElementById('horaInicio').value} GMT`),
                         "horaFim": new Date(`${document.getElementById('dia').value} ${document.getElementById('horaFim').value} GMT`),
                         "pertenceProf": document.getElementById('professor').value,
                         "pertenceMateria": document.getElementById('materia').value
                     }/* Fim do objeto */
-                    console.log(horario)
-                    fetch(`${urlBase}/horario`, {
-                        method: 'POST',
+                    
+                    fetch(`${urlBase}`, {
+                        method: 'PUT',
                         headers: {
                             'Content-Type': 'application/json',
                             'access-token': access_token

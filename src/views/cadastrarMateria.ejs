@@ -11,7 +11,7 @@
                 <form id="materiaForm">
                     <div class="form-group">
                         <label for="subject-name">Nome da Matéria:</label>
-                        <input type="text" id="subject-name" name="subject-name" placeholder="Nome da Matéria" required class="form-control">
+                        <input type="text" id="nome" name="nome" placeholder="Nome da Matéria" required class="form-control">
                     </div>
                     <button type="submit" class="btn btn-primary">Salvar</button>
                     <button type="button" class="btn btn-secondary">Cancelar</button>
@@ -38,9 +38,9 @@
                                     </td>
                                     <td>
                                         <div class="btn-group" role="group">
-                                            <a href="/professor/editar/<%=materia.id%>"><button
+                                            <a href="/materia/editar/<%=materia.id%>"><button
                                                     class="btn btn-sm btn-primary edit-button">Editar</button></a>
-                                            <button onclick="excluirProf('<%=materia.id%>')"
+                                            <button onclick="excluirMat('<%=materia.id%>')"
                                                 class="btn btn-sm btn-danger delete-button ml-2">Excluir</button>
                                         </div>
                                     </td>
@@ -76,7 +76,7 @@
                             'Content-Type': 'application/json',
                             'access-token': access_token
                         },
-                        body: JSON.stringify(professor)
+                        body: JSON.stringify(materia)
                     })
                         .then(response => response.json())
                         .then(data => {
@@ -98,7 +98,7 @@
                             }
                         })
                 })
-                function excluirProf(id) {
+                function excluirMat(id) {
                     fetch(`${urlBase}/materia/editar/${id}`, {
                         method: 'DELETE',
                         headers: {

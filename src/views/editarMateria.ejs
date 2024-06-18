@@ -1,0 +1,144 @@
+<%- include('header'); -%>
+
+    <%- include('menuLateral'); -%>
+
+        <body>
+            <div class="container mt-5">
+                <div class="row">
+                    <!-- Espaço para cadastrar à esquerda -->
+                    <div class="col-md-6">
+                        <h3>Editar Matéria</h3>
+                        <form id="materiaForm" method="put">
+                            <div class="form-group">
+                                <label for="name">ID:</label>
+                                <input type="text" id="id" name="id" value='<%=materia._id%>'  readonly class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Nome:</label>
+                                <input type="text" id="nome" name="nome" value='<%=materia.nome%>' placeholder="Nome da Matéria" required
+                                    class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                            <button type="button" class="btn btn-secondary">Cancelar</button>
+                        </form>
+                    </div>
+
+                    <!-- Espaço para listar à direita -->
+                    <div class="col-md-6">
+                        <h3>Matérias Cadastradas</h3>
+                        <div class="table-container">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="materiaList">
+                                    <!-- Itera sobre os dados dos professores e renderiza cada linha da tabela -->
+                                    <% materias.forEach(materia => { %>
+                                        <tr>
+                                            <td><%= materia.nome %></td>
+                                            <td><div class="btn-group" role="group">
+                                                <a href="/materia/editar/<%=materia.id%>"><button class="btn btn-sm btn-primary edit-button">Editar</button></a>
+                                                <button onclick="excluirMat('<%=materia.id%>')"
+                                                    class="btn btn-sm btn-danger delete-button ml-2">Excluir</button>
+                                            </div></td>
+                                        </tr>
+                                    <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Adicione os scripts do Bootstrap e o seu script personalizado -->
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            <script>
+                const urlBase = window.location.href.replace(/\/[^\/]*$/, '')
+                const access_token = localStorage.getItem('token') || null
+
+                document.getElementById('materiaForm').addEventListener('submit', function (event) {
+                    event.preventDefault() // evita o recarregamento
+
+                    let materia = {} // Objeto materia
+                    let id = document.getElementById('id').value
+                    materia = {
+                        "id":id,
+                        "nome": document.getElementById('nome').value
+                    }/* Fim do objeto */
+
+                    fetch(`${urlBase}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'access-token': access_token
+                        },
+                        body: JSON.stringify(materia)
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (!data.errors) {
+                                alert('Matéria alterada com sucesso!')
+                                //limpamos o formulário
+                                window.location.assign('/materia')
+                            } else if (data.errors) {
+                                const errorMessages = data.errors.map(error => error.msg).join('\n')
+                                window.alert(`${errorMessages}`)
+                            }
+                        })
+                })
+                function excluirMat(id) {
+                    fetch(`${urlBase}/materia/editar/${id}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'access-token': access_token
+                        },
+                    }).then(response => response.json())
+                        .then(data => {
+                            if (data.status = 200) {
+                                window.alert(`Matéria excluída com sucesso!`)
+                                window.location.reload()
+                            } else {
+                                if (Array.isArray(data.errors)) { // Verifica se data.errors é uma array
+                                    const errorMessages = data.errors.map(error => error.msg).join('\n')
+                                    alert(` ${errorMessages}`)
+                                } else {
+                                    alert(`${data.error}`)
+                                }
+                                window.location.href = ('/login')
+                            }
+                        })
+                }
+
+                function parseJwt(token) {
+                    try {
+                        const base64Url = token.split(".")[1]
+                        const base64 = base64Url.replace('-', '+').replace('_', '/')
+                        return JSON.parse(atob(base64))
+                    } catch (e) {
+                        return null
+                    }
+                }
+                
+                document.addEventListener("DOMContentLoaded", function () {
+                    const token = localStorage.getItem('token')
+                    if (!token) {//Não existe o token, enviamos para o login
+                        window.location.href = '/login'
+                    } else {
+                        //token existe, Verificar se é válido
+                        const tokenData = parseJwt(token)
+                        if (tokenData && tokenData.exp && tokenData.exp * 1000 > Date.now()) {
+                            //Token existe e não expirou. Não faremos nada
+                        } else {
+                            window.location.href = '/login' //Se estiver expirado
+                        }
+                    }
+                })
+            </script>
+        </body>
+
+        <%- include('footer'); -%>

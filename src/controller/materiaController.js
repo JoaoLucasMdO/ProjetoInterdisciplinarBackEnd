@@ -13,6 +13,21 @@ exports.getMateria = async function (req, res) {
     }
 }
 
+exports.getMateriaIdLista = async function (req, res) {
+    /*
+    #swagger.tags = ['Materia']
+    #swagger.description = 'Obtém um materia pelo ID'
+    #swagger.parameters['id'] = { description: 'ID do materia' }
+    */
+    try {
+        const materia = await Materia.findById(req.params.id)
+        const result = await Materia.find()
+        res.status(200).render('editarMateria', {materias: result, materia: materia})
+    } catch (err) {
+        res.status(500).json(err)
+    }
+};
+
 exports.getMateriaId = async function (req, res) {
     /*
     #swagger.tags = ['Materia']
@@ -31,8 +46,9 @@ exports.attMateria = async function (req, res) {
     #swagger.tags = ['Materia']
     #swagger.description = 'Atualiza um Materia Cadastrado'
     */
+    delete req.body._id //Removemos o _id do body que foi recebido na req.
     try {
-        const result = await Materia.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        const result = await Materia.findByIdAndUpdate(req.body.id, req.body, {new: false})
         res.status(200).json(result)
     } catch (err) {
         res.status(500).json(err)

@@ -1,4 +1,6 @@
 let Horario = require('../models/horarioModel')
+let Professor = require('../models/professorModel')
+let Materia = require('../models/materiaModel')
 
 exports.gethorario = async function (req, res) {
         /*
@@ -7,7 +9,9 @@ exports.gethorario = async function (req, res) {
        */
     try {
         const result = await Horario.find().populate('pertenceProf').populate('pertenceCurso')
-        res.status(200).render('cadastrarHorario')
+        const professor = await Professor.find()
+        const materia = await Materia.find()
+        res.status(200).render('cadastrarHorario', {professores:professor, materias: materia})
     } catch (err) {
         res.status(500).json(err)
     }

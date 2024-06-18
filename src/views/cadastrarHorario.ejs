@@ -1,6 +1,7 @@
 <%- include('header'); -%>
 <%- include('menuLateral'); -%>
 
+
 <body>
     <div class="container mt-5">
         <div class="row">
@@ -19,12 +20,28 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="entry-time">Horário de Entrada:</label>
-                        <input type="time" id="entry-time" name="entry-time" required class="form-control">
+                        <label for="professor">Professor:</label>
+                        <select id="professor" name="professor" class="form-control">
+                            <% professores.forEach(professor=> { %>
+                            <option value="<%= professor.id %>"><%= professor.nome %></option>
+                            <% }); %>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="exit-time">Horário de Saída:</label>
-                        <input type="time" id="exit-time" name="exit-time" required class="form-control">
+                        <label for="day">Matéria:</label>
+                        <select id="day" name="day" class="form-control">
+                            <% materias.forEach(materia=> { %>
+                                <option value="<%= materia.id %>"><%= materia.nome %></option>
+                                <% }); %>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="horaInicio">Horário de Entrada:</label>
+                        <input type="time" id="horaInicio" name="horaInicio" required class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="horaFim">Horário de Saída:</label>
+                        <input type="time" id="horaFim" name="horaFim" required class="form-control">
                     </div>
                     <button type="submit" class="btn btn-primary">Adicionar</button>
                     <button type="button" class="btn btn-secondary">Cancelar</button>
@@ -58,15 +75,11 @@
     <script>
         
 
-        document.addEventListener('click', function (event) {
-            if (event.target.classList.contains('delete-button')) {
-                deleteItem(event);
-            }
-            if (event.target.classList.contains('edit-button')) {
-                editItem(event);
-            }
-        });
+        
     </script>
+    <br>
+    <br>
+    <br>
 </body>
 
 <%- include('footer'); -%>

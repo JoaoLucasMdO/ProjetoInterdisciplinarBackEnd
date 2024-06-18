@@ -7,6 +7,7 @@ const port = 4000
 const swaggerUi = require('swagger-ui-express');
 const swaggerFile = require('./swagger-output.json');
 const bodyParser = require('body-parser')
+const path = require('path');
 
 //Const Rotas
 const professorRoute = require('./src/routes/professorRoutes')
@@ -23,6 +24,8 @@ app.use(materiaRoute)
 app.use(horarioRoute)
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 app.use(express.json());
+// Configurar o middleware para servir arquivos estáticos
+app.use(express.static(path.join(__dirname, 'src/public')));
 
 //Sets
 app.set('view engine', 'ejs') 

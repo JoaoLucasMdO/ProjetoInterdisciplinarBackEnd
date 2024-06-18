@@ -104,8 +104,8 @@
                     let id = document.getElementById('id').value
                     horario = {
                         "id":id,
-                        "horaInicio": new Date(`${document.getElementById('dia').value} ${document.getElementById('horaInicio').value} GMT`),
-                        "horaFim": new Date(`${document.getElementById('dia').value} ${document.getElementById('horaFim').value} GMT`),
+                        "horaInicio": new Date(`${document.getElementById('dia').value} ${document.getElementById('horaInicio').value}`),
+                        "horaFim": new Date(`${document.getElementById('dia').value} ${document.getElementById('horaFim').value}`),
                         "pertenceProf": document.getElementById('professor').value,
                         "pertenceMateria": document.getElementById('materia').value
                     }/* Fim do objeto */

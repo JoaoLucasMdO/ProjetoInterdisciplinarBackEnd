@@ -8,14 +8,29 @@ exports.gethorario = async function (req, res) {
        #swagger.description = 'Adiciona o horário ao Professor'
        */
     try {
-        const result = await Horario.find().populate('pertenceProf').populate('pertenceCurso')
+        const result = await Horario.find().populate('pertenceProf').populate('pertenceMateria')
         const professor = await Professor.find()
         const materia = await Materia.find()
-        res.status(200).render('cadastrarHorario', {professores:professor, materias: materia})
+        res.status(200).render('cadastrarHorario', {professores:professor, materias: materia, horarios:result})
     } catch (err) {
         res.status(500).json(err)
     }
 }
+
+exports.getHorarioIdLista = async function (req, res) {
+    /*
+    #swagger.tags = ['Professor']
+    #swagger.description = 'Obtém um professor pelo ID'
+    #swagger.parameters['id'] = { description: 'ID do professor' }
+    */
+    try {
+        const horario = await Horario.findById(req.params.id).populate('pertenceProf').populate('pertenceMateria')
+        const result = await Horario.find().populate('pertenceProf').populate('pertenceMateria')
+        res.status(200).render('editarHorario', {horarios: result, horario: horario})
+    } catch (err) {
+        res.status(500).json(err)
+    }
+};
 
 exports.gethorarioId = async function (req, res) {
         /*
@@ -56,24 +71,22 @@ exports.delhorario = async function (req, res) {
     }
 }
 
-exports.createhorario = function (req, res) {
+exports.createhorario = async function (req, res) {
     /*
     #swagger.tags = ['Horário']
     #swagger.description = 'Insere um novo horario'
     */
-    horaI = new Date(req.body.horaInicio)
-    horaF = new Date(req.body.horaFim)
     let horario = new Horario(
         {
-            horaInicio: horaI,
-            horaFim: horaF,
-            pertenceProf: req.body.prof,
-            pertenceMateria: req.body.materia
+            horaInicio: req.body.horaInicio,
+            horaFim: req.body.horaFim,
+            pertenceProf: req.body.pertenceProf,
+            pertenceMateria: req.body.pertenceMateria
         }
     );
 
     try {
-        horario.save()
+        await horario.save()
         res.status(201).send(horario.toJSON())
     } catch (err) {
         res.status(500).send({ message: `${err.message} - falha ao cadastrar o horario.` })

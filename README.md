@@ -88,7 +88,8 @@ Como parte do planejamento do projeto foram criados um protótipo de alta fideli
 Por conta da arquitetura orientada a microsserviços adotada neste projeto, houve a descentralização e isolamento de responsabilidades entre o front-end e o back-end, garantindo que as funcionalidades fossem integradas a partir do consumo das APIs disponíveis, onde a documentação desses microsserviços, um dos requisitos não funcionais desejados para o projeto, foi praticada durante todo o desenvolvimento através de ferramentas como o Swagger ou readmes dos repositórios, mapeando todos os endpoints de cada API criada relacionada ao projeto, enquanto que para outras documentações do projeto como um todo, tais como diagramas de classe e de uso, arquitetura de software, mapa mental, requisitos funcionais e não funcionais.
     
 > 🔗 **Links gerais** <br>
-> - Documentação do software: [clique aqui para acessar](...)
+> - Documentação do software: [clique aqui para acessar](documentacao_geral.pdf)
+> - Apresentação: [clique aqui para acessar](Apresentacao.pptx)
 > - Manual do usuário: [clique aqui para acessar](...)
 > - Links para os repositórios criados:
 >    - **Frontend:** [acessar help-duck-web](...)

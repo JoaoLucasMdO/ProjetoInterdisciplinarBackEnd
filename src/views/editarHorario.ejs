@@ -2,7 +2,7 @@
 <%- include('menuLateral'); -%>
 
 
-<body  onload="valorData('<%= horario.horaInicio %>')">
+<body  onload="valorData('<%= horario.horaInicio %>'),valorHoraInic('<%= horario.horaInicio %>'),valorHoraFim('<%= horario.horaFim %>')">
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-6">
@@ -30,11 +30,11 @@
                     </div>
                     <div class="form-group">
                         <label for="horaInicio">Horário de Entrada:</label>
-                        <input type="time" id="horaInicio" value="<%= horario.horaInicio.getHours() %>:<%= horario.horaInicio.getMinutes() %>" name="horaInicio" required class="form-control">
+                        <input type="time" id="horaInicio" name="horaInicio" required class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="horaFim">Horário de Saída:</label>
-                        <input type="time" id="horaFim" value="<%= horario.horaFim.getHours() %>:<%= horario.horaFim.getMinutes() %>" name="horaFim" required class="form-control">
+                        <input type="time" id="horaFim" name="horaFim" required class="form-control">
                     </div>
                     <button type="submit" class="btn btn-primary">Salvar</button>
                     <button type="button" class="btn btn-secondary">Cancelar</button>
@@ -121,7 +121,7 @@
                         .then(response => response.json())
                         .then(data => {
                             if (!data.errors) {
-                                alert('Horário incluído com sucesso!')
+                                alert('Horário atualizado com sucesso!')
                                 //limpamos o formulário
                                 location.reload()
                             } else if(access_token == null) {
@@ -188,14 +188,45 @@
                     }
                 })
 
+                //Arrumando o problema dos zeros no getMonth e getDate do Date
                 function valorData(horario){
-                    console.log(horario)
                     horario = new Date(horario)
-                    if(horario.getMonth() < 10){
-                    document.getElementById('dia').value = '<%= horario.horaInicio.getFullYear() %>-0<%= horario.horaInicio.getMonth() +1 %>-<%= horario.horaInicio.getDate() %>'
+                    if(horario.getMonth() < 10 && horario.getDate() < 10){
+                    document.getElementById('dia').value = '<%= horario.horaInicio.getFullYear() %>-0<%= horario.horaInicio.getMonth() +1 %>-0<%= horario.horaInicio.getDate() %>'
+                    }else if(horario.getMonth() < 10 && horario.getDate() > 10){
+                        document.getElementById('dia').value = '<%= horario.horaInicio.getFullYear() %>-0<%= horario.horaInicio.getMonth() +1 %>-<%= horario.horaInicio.getDate() %>'
+                    }else if(horario.getMonth() > 10 && horario.getDate() < 10){
+                        document.getElementById('dia').value = '<%= horario.horaInicio.getFullYear() %>-<%= horario.horaInicio.getMonth() +1 %>-0<%= horario.horaInicio.getDate() %>'
                     }else{
                         document.getElementById('dia').value = '<%= horario.horaInicio.getFullYear() %>-<%= horario.horaInicio.getMonth() +1 %>-<%= horario.horaInicio.getDate() %>'
                     }
+                }
+
+                //Arrumando o problema dos zeros no getHours do Date
+                function valorHoraInic(horario){
+                    horario = new Date(horario)
+                    if(horario.getHours() < 10 && horario.getMinutes() < 10){
+                        document.getElementById('horaInicio').value = '0<%= horario.horaInicio.getHours() %>:0<%= horario.horaInicio.getMinutes() %>'
+                    }else if(horario.getHours() < 10 && horario.getMinutes() > 10){
+                        document.getElementById('horaInicio').value = '0<%= horario.horaInicio.getHours() %>:<%= horario.horaInicio.getMinutes() %>'
+                        }else if(horario.getHours() > 10 && horario.getMinutes() < 10){
+                            document.getElementById('horaInicio').value = '<%= horario.horaInicio.getHours() %>:0<%= horario.horaInicio.getMinutes() %>'
+                        }else{
+                            document.getElementById('horaInicio').value = '<%= horario.horaInicio.getHours() %>:<%= horario.horaInicio.getMinutes() %>'
+                        }
+                }
+
+                function valorHoraFim(horario){
+                    horario = new Date(horario)
+                    if(horario.getHours() < 10 && horario.getMinutes() < 10){
+                        document.getElementById('horaFim').value = '0<%= horario.horaFim.getHours() %>:0<%= horario.horaFim.getMinutes() %>'
+                    }else if(horario.getHours() < 10 && horario.getMinutes() > 10){
+                        document.getElementById('horaFim').value = '0<%= horario.horaFim.getHours() %>:<%= horario.horaFim.getMinutes() %>'
+                        }else if(horario.getHours() > 10 && horario.getMinutes() < 10){
+                            document.getElementById('horaFim').value = '<%= horario.horaFim.getHours() %>:0<%= horario.horaFim.getMinutes() %>'
+                        }else{
+                            document.getElementById('horaFim').value = '<%= horario.horaFim.getHours() %>:<%= horario.horaFim.getMinutes() %>'
+                        }
                 }
     </script>
     <br>

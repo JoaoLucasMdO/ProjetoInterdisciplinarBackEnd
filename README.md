@@ -83,7 +83,7 @@ Confira a seguir algumas etapas do sistema:
 <span id="prototipo">
 
 ## :desktop_computer: Protótipo & Documentação
-Como parte do planejamento do projeto foram criados um protótipo de alta fidelidade e documentação para idealização do layout, que, ao ser validado pelo cliente, foram aplicados em um protótipo construído no Figma possibilitando a interação do usuário com a interface (https://github.com/JoaoLucasMdO/ProjetoInterdisciplinarBackEnd/blob/main/README.md).
+Como parte do planejamento do projeto foram criados um protótipo de alta fidelidade e documentação para idealização do layout, que, ao ser validado pelo cliente, foram aplicados em um protótipo construído no Figma possibilitando a interação do usuário com a interface (https://www.figma.com/proto/7psDbGlzerDzG7wWH7NK7R/Ponto-dos-Professores?node-id=1217-327&starting-point-node-id=1217%3A327).
     
 Por conta da arquitetura orientada a microsserviços adotada neste projeto, houve a descentralização e isolamento de responsabilidades entre o front-end e o back-end, garantindo que as funcionalidades fossem integradas a partir do consumo das APIs disponíveis, onde a documentação desses microsserviços, um dos requisitos não funcionais desejados para o projeto, foi praticada durante todo o desenvolvimento através de ferramentas como o Swagger ou readmes dos repositórios, mapeando todos os endpoints de cada API criada relacionada ao projeto, enquanto que para outras documentações do projeto como um todo, tais como diagramas de classe e de uso, arquitetura de software, mapa mental, requisitos funcionais e não funcionais.
     
@@ -91,8 +91,6 @@ Por conta da arquitetura orientada a microsserviços adotada neste projeto, houv
 > - Documentação do software: [clique aqui para acessar](documentacao_geral.pdf)
 > - Apresentação: [clique aqui para acessar](Apresentacao.pptx)
 > - Manual do usuário: [clique aqui para acessar](...)
-> - Links para os repositórios criados:
->    - **Frontend:** [acessar help-duck-web](...)
 
 → [Voltar ao topo](#topo)
 

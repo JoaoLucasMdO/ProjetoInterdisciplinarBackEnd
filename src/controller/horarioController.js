@@ -112,5 +112,10 @@ exports.getInicio = async function (req, res) {
     #swagger.description = 'Direciona a página inicial'
     */
     const result = await Horario.find().populate('pertenceProf').populate('pertenceMateria')
-    res.render('index', {horarios: result});
+    if(result.length == 0){
+        res.render('inicioVazio');
+    }else{
+        res.render('index', {horarios: result});
+    }
+    
 };

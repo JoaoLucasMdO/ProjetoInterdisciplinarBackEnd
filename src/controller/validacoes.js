@@ -69,3 +69,4 @@ exports.validaUsuario = function() {
             }).withMessage('A senha não é segura. Informe no mínimo 1 caractere maiúsculo, 1 minúsculo, 1 número e 1 caractere especial'),
     ];
 };
+

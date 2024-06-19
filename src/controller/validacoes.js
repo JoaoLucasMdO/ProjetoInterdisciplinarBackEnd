@@ -40,6 +40,20 @@ exports.validaAttProfessor = function() {
     ];
 };
 
+exports.validaHorario= function() {
+    return [
+        check('horaInicio').custom((value, { req }) => {
+            const horaInicio = new Date(req.body.horaInicio);
+            const horaFim = new Date(req.body.horaFim);
+            
+            if (horaInicio.getTime() > horaFim.getTime()) {
+                throw new Error('O horário de entrada não pode ser maior que o de saída!');
+            }
+            return true
+        })
+    ];
+};
+
 exports.validaUsuario = function() {
     return [
         check('nome')

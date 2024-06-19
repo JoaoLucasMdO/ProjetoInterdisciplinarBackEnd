@@ -30,10 +30,10 @@
                                                 <%= horario.horaInicio.getDate() %>/<%= horario.horaInicio.getMonth() +1 %>/<%= horario.horaInicio.getFullYear() %>
                                             </td>
                                             <td>
-                                                <%= horario.horaInicio.getHours() %>:<%= horario.horaInicio.getMinutes() %>
+                                                <%= horario.horaInicio.toString().substring(15,21) %>
                                             </td>
                                             <td>
-                                                <%= horario.horaFim.getHours() %>:<%= horario.horaFim.getMinutes() %>
+                                                <%= horario.horaFim.toString().substring(15,21) %>
                                             </td>
                                             <td>
                                                 <div class="btn-group" role="group">
@@ -95,10 +95,10 @@ tableHtml += `
                     <%= horario.horaInicio.getDate() %>/<%= horario.horaInicio.getMonth() +1 %>/<%= horario.horaInicio.getFullYear() %>
                 </td>
                 <td>
-                    <%= horario.horaInicio.getHours() %>:<%= horario.horaInicio.getMinutes() %>
+                    <%= horario.horaInicio.toString().substring(15,21) %>
                 </td>
                 <td>
-                    <%= horario.horaFim.getHours() %>:<%= horario.horaFim.getMinutes() %>
+                    <%= horario.horaFim.toString().substring(15,21) %>
                 </td>
                 <td colspan="6" style="text-align: center; padding-top: 20px;">
                     <strong>Assinatura do Professor:</strong> _______________________

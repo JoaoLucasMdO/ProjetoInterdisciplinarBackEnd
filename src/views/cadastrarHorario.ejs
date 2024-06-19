@@ -68,10 +68,10 @@
                                         <%= horario.horaInicio.getDate() %>/<%= horario.horaInicio.getMonth() +1 %>/<%= horario.horaInicio.getFullYear() %>
                                     </td>
                                     <td>
-                                        <%= horario.horaInicio.getHours() %>:<%= horario.horaInicio.getMinutes() %>
+                                        <%= horario.horaInicio.toString().substring(15,21) %>
                                     </td>
                                     <td>
-                                        <%= horario.horaFim.getHours() %>:<%= horario.horaFim.getMinutes() %>
+                                        <%= horario.horaFim.toString().substring(15,21) %>
                                     </td>
                                     <td>
                                         <div class="btn-group" role="group">
@@ -102,12 +102,11 @@
                     event.preventDefault() // evita o recarregamento
                     let horario = {} // Objeto professor
                     horario = {
-                        "horaInicio": new Date(`${document.getElementById('dia').value} ${document.getElementById('horaInicio').value}`),
-                        "horaFim": new Date(`${document.getElementById('dia').value} ${document.getElementById('horaFim').value}`),
+                        "horaInicio": new Date(`${document.getElementById('dia').value} ${document.getElementById('horaInicio').value} GMT-0300`),
+                        "horaFim": new Date(`${document.getElementById('dia').value} ${document.getElementById('horaFim').value} GMT-0300`),
                         "pertenceProf": document.getElementById('professor').value,
                         "pertenceMateria": document.getElementById('materia').value
                     }/* Fim do objeto */
-                    console.log(horario)
                     fetch(`${urlBase}/horario`, {
                         method: 'POST',
                         headers: {

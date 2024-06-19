@@ -1,6 +1,7 @@
 let Horario = require('../models/horarioModel')
 let Professor = require('../models/professorModel')
 let Materia = require('../models/materiaModel')
+const { validationResult } = require('express-validator');
 
 exports.gethorario = async function (req, res) {
         /*
@@ -50,7 +51,11 @@ exports.atthorario = async function (req, res) {
        #swagger.tags = ['Horário']
        #swagger.description = 'Atualiza o horário pelo id'
        */
-    delete req.body._id //Removemos o _id do body que foi recebido na req.
+       const errors = validationResult(req);
+       if (!errors.isEmpty()) {
+           return res.status(400).json({ errors: errors.array() });
+       }
+       
     try {
         const result = await Horario.findByIdAndUpdate(req.body.id, req.body, {new: true})
         res.status(200).json(result)
@@ -77,6 +82,13 @@ exports.createhorario = async function (req, res) {
     #swagger.tags = ['Horário']
     #swagger.description = 'Insere um novo horario'
     */
+
+   // Verifica se houve algum erro de validação nos parâmetros da requisição
+   const errors = validationResult(req);
+   if (!errors.isEmpty()) {
+       return res.status(400).json({ errors: errors.array() });
+   }
+   
     let horario = new Horario(
         {
             horaInicio: req.body.horaInicio,

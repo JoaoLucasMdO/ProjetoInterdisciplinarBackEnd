@@ -90,7 +90,7 @@ Por conta da arquitetura orientada a microsserviços adotada neste projeto, houv
 > 🔗 **Links gerais** <br>
 > - Documentação do software: [clique aqui para acessar](documentacao_geral.pdf)
 > - Apresentação: [clique aqui para acessar](Apresentacao.pptx)
-> - Manual do usuário: [clique aqui para acessar](...)
+> - Scrum no jira [clique aqui para acessar](https://joao1234.atlassian.net/jira/software/projects/NEW/boards/2?atlOrigin=eyJpIjoiZGYzMjQ4Y2EzMTQwNDgyZTgyN2Q4ZWFkNjQ3M2RlYjYiLCJwIjoiaiJ9)
 
 → [Voltar ao topo](#topo)
 

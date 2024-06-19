@@ -91,7 +91,7 @@
                         })
                 })
                 function excluirMat(id) {
-                    fetch(`${urlBase}/materia/editar/${id}`, {
+                    fetch(`${urlBase}/${id}`, {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json',
@@ -101,7 +101,7 @@
                         .then(data => {
                             if (data.status = 200) {
                                 window.alert(`Matéria excluída com sucesso!`)
-                                window.location.reload()
+                                window.location.href = ('/materia')
                             } else {
                                 if (Array.isArray(data.errors)) { // Verifica se data.errors é uma array
                                     const errorMessages = data.errors.map(error => error.msg).join('\n')

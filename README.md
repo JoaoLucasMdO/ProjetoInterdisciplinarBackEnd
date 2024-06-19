@@ -131,7 +131,9 @@ express, mongoose, body-parser, jest, supertest
 ## :busts_in_silhouette: Equipe
 
 |    Função     |         Nome            |                GitHub                 |
+<br>
 | Scrum Master  | Gesley de Oliveira Rosa | [(https://github.com/GesleyOliveira)] |
+<br>
 |   Dev Team    |   João Lucas de Melo    | [(https://github.com/JoaoLucasMdO)]   |
 
 

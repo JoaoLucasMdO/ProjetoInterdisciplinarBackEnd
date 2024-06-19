@@ -18,7 +18,19 @@ Após proposta de criação de software, sugerido pela Coordenação de curso, p
 
 > _Projeto baseado na metodologia ágil SCRUM, procurando desenvolver a Melhoria contínua, Comunicação, Colaboração e Atendimento aos prazos dos estudantes envolvidos_
 
-:pushpin: Status do Projeto: **Em andamento: Proposta do Semestre finalizada** :heavy_check_mark:
+Através dos dias de aula dos docentes, as solicitações poderão ser registradas no aplicativo, ao qual deverá ter o documento conferido e assinado pelo docente.
+
+:pushpin: Status do Projeto: **Concluído: Proposta do Semestre finalizada** :heavy_check_mark:
+
+### Datas das entregas de Sprints
+| Sprint | Previsão | Status | Histórico |
+|:--:|:----------:|:----------------|:-------------------------------------------------:|
+| 01 | 22/03/2024 |  ✔️Concluído    |[ver relatório](./documentacoes/sprit1.md)|
+| 02 | 27/04/2024 |  ✔️Concluído    |[ver relatório](./documentacoes/sprit2.md)|
+| 03 | 04/05/2024 |  ✔️Concluído    |[ver relatório](./documentacoes/sprit3.md)|
+| 04 | 18/05/2024 |  ✔️Concluído    |[ver relatório](./documentacoes/sprit4.md)|
+| 05 | 01/06/2024 |  ✔️Concluído    |[ver relatório](./documentacoes/sprit5.md)|
+| 06 | 08/06/2024 |  ✔️Concluído    |[ver relatório](./documentacoes/sprit6.md)|
 
 ### :clapper: Apresentação Final
 Confira a seguir algumas etapas do sistema:
@@ -83,7 +95,7 @@ Confira a seguir algumas etapas do sistema:
 <span id="prototipo">
 
 ## :desktop_computer: Protótipo & Documentação
-Como parte do planejamento do projeto foram criados um protótipo de alta fidelidade e documentação para idealização do layout, que, ao ser validado pelo cliente, foram aplicados em um protótipo construído no Figma possibilitando a interação do usuário com a interface (https://www.figma.com/proto/7psDbGlzerDzG7wWH7NK7R/Ponto-dos-Professores?node-id=1217-327&starting-point-node-id=1217%3A327).
+Como parte do planejamento do projeto foram criados um protótipo de alta fidelidade e documentação para idealização do layout, que, ao ser validado pelo cliente, foram aplicados em um protótipo construído no Figma possibilitando a interação do usuário com a interface, <a href="https://www.figma.com/proto/7psDbGlzerDzG7wWH7NK7R/Ponto-dos-Professores?node-id=1217-327&starting-point-node-id=1217%3A327">Verifique aqui</a>
     
 Por conta da arquitetura orientada a microsserviços adotada neste projeto, houve a descentralização e isolamento de responsabilidades entre o front-end e o back-end, garantindo que as funcionalidades fossem integradas a partir do consumo das APIs disponíveis, onde a documentação desses microsserviços, um dos requisitos não funcionais desejados para o projeto, foi praticada durante todo o desenvolvimento através de ferramentas como o Swagger ou readmes dos repositórios, mapeando todos os endpoints de cada API criada relacionada ao projeto, enquanto que para outras documentações do projeto como um todo, tais como diagramas de classe e de uso, arquitetura de software, mapa mental, requisitos funcionais e não funcionais.
     
@@ -118,8 +130,13 @@ express, mongoose, body-parser, jest, supertest
 
 ## :busts_in_silhouette: Equipe
 
-Nome: Gesley de Oliveira Rosa | [(https://github.com/GesleyOliveira)]
+|    Função     |         Nome            |                GitHub                 |
+| Scrum Master  | Gesley de Oliveira Rosa | [(https://github.com/GesleyOliveira)] |
+|   Dev Team    |   João Lucas de Melo    | [(https://github.com/JoaoLucasMdO)]   |
 
-Nome: João Lucas de Melo | [(https://github.com/JoaoLucasMdO)]
 
 → [Voltar ao topo](#topo)
+
+## 🪪 Licença
+
+MIT License

@@ -35,8 +35,8 @@ config.config()
 let db = mongoose.connection;
 //Conexão do Banco
 //Colocar url pessoal aqui e comentar a debaixo!
+let url = 'mongodb://127.0.0.1:27017/projetoInterdisciplinar';
 //let url = 'mongodb+srv://janmello123:joao123@projetointerdisciplinar.yuod8po.mongodb.net/projetoInterdisciplinar';
-let url = 'mongodb+srv://janmello123:joao123@projetointerdisciplinar.yuod8po.mongodb.net/projetoInterdisciplinar';
 mongoose.connect(url);
 mongoose.Promise = global.Promise;
 db.on('error', console.error.bind(console, 'Erro ao conectar ao MongoDB'));

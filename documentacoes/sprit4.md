@@ -5,5 +5,7 @@
 ### Atividades
 
 RNF01 - Utilizar Banco de Dados NoSQL MongoDB
+<br>
 RF12 - Vincular Horários de Professores
+<br>
 RF13 - Vincular Matérias dos Professores

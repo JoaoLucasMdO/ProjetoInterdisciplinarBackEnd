@@ -23,6 +23,8 @@ app.use(materiaRoute)
 app.use(horarioRoute)
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 app.use(express.json());
+//Configurando o favicon
+app.use('/favicon.ico', express.static('public/images/logo3.jpg'))
 
 //Sets
 app.set('view engine', 'ejs') 
@@ -45,7 +47,7 @@ app.get('/', (req, res) => {
     #swagger.tags = ['Usuario']
     #swagger.description = 'Direciona o Usuário a página de Login'
     */
-  res.render('login', {mensagemLogin:""})
+  res.render('login')
     /*
     #swagger.tags = ['Usuario']
     #swagger.description = 'Renderiza a página de Login'

@@ -25,12 +25,12 @@ Através dos dias de aula dos docentes, as solicitações poderão ser registrad
 ### Datas das entregas de Sprints
 | Sprint | Previsão | Status | Histórico |
 |:--:|:----------:|:----------------|:-------------------------------------------------:|
-| 01 | 22/03/2024 |  ✔️Concluído    |[ver relatório](./documentacoes/sprit1.md)|
-| 02 | 27/04/2024 |  ✔️Concluído    |[ver relatório](./documentacoes/sprit2.md)|
-| 03 | 04/05/2024 |  ✔️Concluído    |[ver relatório](./documentacoes/sprit3.md)|
-| 04 | 18/05/2024 |  ✔️Concluído    |[ver relatório](./documentacoes/sprit4.md)|
-| 05 | 01/06/2024 |  ✔️Concluído    |[ver relatório](./documentacoes/sprit5.md)|
-| 06 | 08/06/2024 |  ✔️Concluído    |[ver relatório](./documentacoes/sprit6.md)|
+| 01 | 22/03/2024 |  ✔️Concluído    |[ver relatório](./documentacoes/sprint1.md)|
+| 02 | 27/04/2024 |  ✔️Concluído    |[ver relatório](./documentacoes/sprint2.md)|
+| 03 | 04/05/2024 |  ✔️Concluído    |[ver relatório](./documentacoes/sprint3.md)|
+| 04 | 18/05/2024 |  ✔️Concluído    |[ver relatório](./documentacoes/sprint4.md)|
+| 05 | 01/06/2024 |  ✔️Concluído    |[ver relatório](./documentacoes/sprint5.md)|
+| 06 | 08/06/2024 |  ✔️Concluído    |[ver relatório](./documentacoes/sprint6.md)|
 
 ### :clapper: Apresentação Final
 Confira a seguir algumas etapas do sistema:

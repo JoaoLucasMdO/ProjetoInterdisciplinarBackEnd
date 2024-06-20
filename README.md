@@ -104,13 +104,7 @@ Por conta da arquitetura orientada a microsserviços adotada neste projeto, houv
 > - Documentação Persona, Descrição Narrativa dos Cenários, Situação de Uso das Personas, Objetivos mais frequêntes e mais infrequêntes de cada Persona, Card Sorting e Avaliação Heurística [clique aqui para acessar](Ponto_Professores_IHC.docx)
 > - Apresentação: [clique aqui para acessar](Apresentacao.pptx)
 > - Scrum no jira [clique aqui para acessar](https://joao1234.atlassian.net/jira/software/projects/NEW/boards/2?atlOrigin=eyJpIjoiZGYzMjQ4Y2EzMTQwNDgyZTgyN2Q4ZWFkNjQ3M2RlYjYiLCJwIjoiaiJ9)
-
-<details>
-   <summary>User Stories</summary>
-    <div align="center">
-        <img src="./documentacoes/userStories.pdf">
-    </div>
-</details>
+> - User Stories: [clique aqui para acessar](./documentacoes/userStories.pdf)
 
 → [Voltar ao topo](#topo)
 
